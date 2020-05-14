@@ -1,5 +1,4 @@
 import styled from "styled-components/macro";
-import { breakpoints } from "../Breakpoints";
 import "typeface-lato"
 
 const CallToAction =  styled.h3`
@@ -16,14 +15,6 @@ const CallToAction =  styled.h3`
         color: #0077ff;
         text-decoration: none;
         transition: 0.3s ease;
-    }
-
-    @media (min-width: ${breakpoints.mobileMax}) {
-        margin-left: 50px;
-    }
-
-    @media (min-width: ${breakpoints.tabletMax}) {
-        margin-left: 0px;
     }
 `;
 

@@ -7,6 +7,7 @@ import styled from "styled-components"
 import { breakpoints } from '../components/Breakpoints'
 import Paragraph from '../components/text/Paragraph'
 import CallToAction from "../components/text/CallToAction"
+import WorkSubHeading from '../components/text/WorkSubHeading'
 
 
 const ProjectYear = styled(Paragraph)`
@@ -47,28 +48,6 @@ const Container = styled.div`
   @media (max-width: ${breakpoints.mobileMax}) {
     width: 100%;
 }
-`;
-
-const WorkSubHeading = styled.h2`
-  font-family: "Open Sans";
-  font-weight: 700;
-  font-size: 2rem;
-  color: #212529;
-  width: 450px;
-  margin-top: 20px;
-  margin-botton: 30px;
-
-  @media (min-width: ${breakpoints.mobileMax}) {
-    margin-left: 50px;
-  }
-
-  @media (max-width: ${breakpoints.mobileMax}) {
-    font-size: 2.25rem;
-  }
-
-  @media (min-width: ${breakpoints.tabletMax}) {
-    margin-left: 0px;
-  }
 `;
 
 

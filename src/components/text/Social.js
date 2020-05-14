@@ -2,7 +2,6 @@ import React from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faInstagram, faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons"
 import styled from "styled-components/macro"
-import { breakpoints } from "../Breakpoints";
 
 const SocialContainer = styled.div`
   display: flex;
@@ -17,14 +16,6 @@ const SocialContainer = styled.div`
       transition: 0.3s ease;
     }
   }
-
-  @media (min-width: ${breakpoints.mobileMax}) {
-    margin-left: 50px;
-  }
-
-  @media (min-width: ${breakpoints.tabletMax}) {
-      margin-left: 0px;
-    }
 `;
 
 const SocialButtons = () => (

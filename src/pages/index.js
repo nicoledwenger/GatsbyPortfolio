@@ -44,7 +44,6 @@ const WorkTitle = styled.h3`
   font-weight: 700;
   font-size: 2rem;
   color: #212529;
-  width: 450px;
   margin-top: 20px;
   margin-bottom: 10px;
 `;
@@ -90,8 +89,6 @@ const ToRight = keyframes`
 `;
 
 const Line = styled.span`
-  position: absolute;
-  left: 0;
   display: block;
   margin: 0 auto;
   height: 4px;
@@ -117,13 +114,37 @@ const DecorationLine = styled.span`
   }
 `;
 
+const ProjectOverlay = styled.div`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: 0.5s ease;
+  background-color: rgba(225,225,225,0.6);
+  border-radius: 5px;
+`;
+
+const ProjectText = styled.div`
+  margin-top: 20%;
+  text-align: center;
+`;
+
+const ProjectOverlayContainer = styled.div`
+  position: relative;
+  width: 100%;
+`;
+
 const ProjectContainer = styled.div` 
   width: 45%;
   margin-bottom: 40px;
   margin-top: 0px;
   height: unset;
   transition-duration: 0.3s;
-  filter: grayscale(100%);
+  filter: grayscale(20%);
 
   :nth-child(odd) {
     margin-right: 0;
@@ -138,11 +159,18 @@ const ProjectContainer = styled.div`
 }
 
   :hover {
-    filter: grayscale(0%);
 
-    img {
+    ${ProjectOverlay} {
+      opacity: 1;
+    }
+
+    div {
         transform: scale(1.03);
         transition-duration: 0.3s;
+    }
+
+    img {
+      filter: grayscale(100%);
     }
 
     ${Paragraph}{
@@ -150,7 +178,7 @@ const ProjectContainer = styled.div`
       opacity: 1;
 
       > ${Line}{
-        width: 25%;
+        width: 20%;
       }
     }
     
@@ -166,7 +194,7 @@ const IndexPage = ({ data }) => {
     <div style={{maxWidth: '725px', marginTop: '20%'}}>
       <DecorationLine/>
       <Heading>Hi, I'm Nicole, front end <span>developer</span>, <span>designer</span>, and strategic <span>communicator</span>.</Heading>
-      <SubHeading>Currently an intern at General Motors and pursuing a dual degree at Purdue University.</SubHeading>
+      <SubHeading>Currently an intern at General Motors and pursuing two degrees at Purdue University.</SubHeading>
     </div>
     <SocialButtons />
     <ProfilePhoto src={profilePhoto} alt="Nicole Dwenger Profile" />
@@ -175,6 +203,37 @@ const IndexPage = ({ data }) => {
 
     <SubHeading id="works" style={{marginTop: '25%'}}>Selected works</SubHeading>
     <WorkContainer>
+        {data.allMarkdownRemark.edges.map(({ node }) => (
+          <ProjectContainer key={node.id}>
+            <ProjectOverlayContainer>
+             <Img 
+                fluid={node.frontmatter.featuredImage.childImageSharp.fluid} 
+                alt={node.frontmatter.title}
+                style={{ 
+                  boxShadow: '0px 4px 10px 0 #efefef',
+                  borderRadius: '5px'}}
+                 /> 
+
+            <ProjectOverlay>
+              <ProjectText>
+              <WorkLink to={node.fields.slug}>
+            <WorkTitle>
+                {node.frontmatter.title}{" "}
+              </WorkTitle>
+              <Paragraph>
+                View Project
+                  <Line></Line>
+              </Paragraph>
+            </WorkLink>
+              </ProjectText>
+            
+            </ProjectOverlay>
+            </ProjectOverlayContainer>
+            </ProjectContainer>
+        ))}
+    </WorkContainer>
+
+    {/* <WorkContainer>
         {data.allMarkdownRemark.edges.map(({ node }) => (
           <ProjectContainer key={node.id}>
             <WorkLink to={node.fields.slug}>
@@ -195,7 +254,7 @@ const IndexPage = ({ data }) => {
             </WorkLink>
             </ProjectContainer>
         ))}
-    </WorkContainer>
+    </WorkContainer> */}
     
     <About />
     <Resume />

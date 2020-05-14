@@ -83,15 +83,18 @@ const Resume = () => (
         </ResumeWrapper>
 
         <ResumeHeader>Experience</ResumeHeader>
+        <ResumeYear>Aug 2019 - June 2020</ResumeYear>
+        <ResumeWrapper>
+            <ResumeText><strong>Web Team Intern</strong><br />Purdue Agricultural Communication</ResumeText>
+            <ResumeSubText>West Lafayette, IN <br /> 
+            Update WordPress and Sharepoint pages while meeting branding standards and client requests</ResumeSubText>
+        </ResumeWrapper>
+
         <ResumeYear>Aug 2019 - May 2020</ResumeYear>
         <ResumeWrapper>
             <ResumeText><strong>Front End Developer</strong><br/>CDW</ResumeText>
             <ResumeSubText>Vernon Hills, IL <br /> 
             Developed atomic components and conducted unit code testing for front end Adobe Experience Manager codebase</ResumeSubText>
-
-            <ResumeText><strong>Web Team Intern</strong><br />Purdue Agricultural Communication</ResumeText>
-            <ResumeSubText>West Lafayette, IN <br /> 
-            Update WordPress and Sharepoint pages while meeting branding standards and client requests</ResumeSubText>
 
             <ResumeText><strong>Undergraduate Researcher</strong><br />Purdue Polytechnic Institute</ResumeText>
             <ResumeSubText>West Lafayette, IN <br /> 
@@ -121,6 +124,12 @@ const Resume = () => (
         </ResumeWrapper>
 
         <ResumeHeader>Honors and Awards</ResumeHeader>
+        <ResumeYear>May 2020</ResumeYear>
+        <ResumeWrapper>
+            <ResumeText><strong>Purdue Polytechnic Institute Undergraduate Research Poster Winner</strong></ResumeText>
+            <ResumeSubText>Purdue Polytechnic Institute </ResumeSubText>
+        </ResumeWrapper>
+
         <ResumeYear>Aug 2017 - Present</ResumeYear>
         <ResumeWrapper>
             <ResumeText><strong>College Dean's List</strong></ResumeText>
