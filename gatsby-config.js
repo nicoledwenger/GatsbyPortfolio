@@ -3,27 +3,35 @@ module.exports = {
     title: `Nicole Dwenger`,
     description: `Nicole Dwenger is a front end developer with design and communication backgrounds.`,
     author: `@nicoledwenger`,
-    menuLinks: [
+    menuLinks: [ 
       {
-        name: 'works',
-        link: '/#works'
-      },
-      {
-        name: 'about',
-        link: '/#about'
+        name: 'contact',
+        link: '/#contact'
       },
       {
         name: 'resume',
         link: '/#resume'
       },
       {
-        name: 'contact',
-        link: '/#contact'
+        name: 'about',
+        link: '/#about'
+      },
+      {
+        name: 'work',
+        link: '/#work'
       },
     ],
   },
   plugins: [
     `gatsby-plugin-styled-components`,
+    {
+      resolve: 'gatsby-plugin-web-font-loader',
+      options: {
+        typekit: {
+          id: 'cnc7spr'
+        }
+      }
+    },
     {
       resolve: `gatsby-plugin-mdx`,
       options: {

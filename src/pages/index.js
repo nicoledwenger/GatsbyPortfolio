@@ -1,5 +1,6 @@
 import React from "react"
 import { Link, graphql } from 'gatsby'
+import Fade from 'react-reveal/Fade';
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -11,9 +12,9 @@ import SubHeading from '../components/text/SubHeading'
 import SocialButtons from '../components/text/Social'
 import About from '../components/About'
 import Resume from '../components/Resume'
-import Img from 'gatsby-image'
 import { breakpoints } from '../components/Breakpoints'
 import Paragraph from '../components/text/Paragraph'
+import Footer from '../components/Footer'
 
 
 const ProfilePhoto = styled.img`
@@ -42,9 +43,8 @@ const ProfilePhoto = styled.img`
 const WorkTitle = styled.h3`
   font-family: "Open Sans";
   font-weight: 700;
-  font-size: 2rem;
+  font-size: 1.2rem;
   color: #212529;
-  margin-top: 20px;
   margin-bottom: 10px;
 `;
 
@@ -61,18 +61,26 @@ const WorkLink = styled(Link)`
       color: #d96c5b;
       transition-duration: 0.3s;
       text-decoration: none;
-
   }
 `;
 
 const WorkContainer = styled.div`
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  width: 100vw;
 
-    @media (max-width: ${breakpoints.mobileMax}) {
-      display: block;
-      flex-wrap: nowrap;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (max-width: ${breakpoints.mobileMax}) {
+    padding-left: 20px;
+  }
+
+  @media (min-width: ${breakpoints.tabletMin}) {
+    padding-left: 12%;
+    margin: 0 auto;
   }
 `;
 
@@ -84,24 +92,16 @@ const ToRight = keyframes`
 
   100%{
     opacity: 1;
-    width: 300px;
+    width: 75%;
   }
-`;
-
-const Line = styled.span`
-  display: block;
-  margin: 0 auto;
-  height: 4px;
-  background-color: #0077ff;
-  width: 0%;
-  transition: width 0.5s ease;
 `;
 
 const DecorationLine = styled.span`
   display: block;
-  height: 4px;
+  height: 8px;
   background-color: #0077ff;
   transition: width 0.5s ease;
+  margin-bottom: -45px;
   animation: 1s ease 0s 1 normal forwards running ${ToRight};
 
   @media (min-width: ${breakpoints.mobileMax}) {
@@ -114,151 +114,151 @@ const DecorationLine = styled.span`
   }
 `;
 
-const ProjectOverlay = styled.div`
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-  width: 100%;
-  opacity: 0;
-  transition: 0.5s ease;
-  background-color: rgba(225,225,225,0.6);
-  border-radius: 5px;
-`;
+const Segment = styled.div` 
+  transition-duration: 0.3s;
+  display: flex;
+  flex: wrap;
 
-const ProjectText = styled.div`
-  margin-top: 20%;
-  text-align: center;
-`;
+  :nth-child(1) {
+    width: 55%;
+    margin-right: 20px;
 
-const ProjectOverlayContainer = styled.div`
-  position: relative;
-  width: 100%;
+    @media (max-width: ${breakpoints.mobileMax}) {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  :nth-child(2) {
+    
+    @media (max-width: ${breakpoints.mobileMax}) {
+      display: block;
+      width: 100%;
+    }
+  }
 `;
 
 const ProjectContainer = styled.div` 
-  width: 45%;
-  margin-bottom: 40px;
-  margin-top: 0px;
-  height: unset;
-  transition-duration: 0.3s;
-  filter: grayscale(20%);
+  flex: 0 0 auto;
+  width: 70%;
 
-  :nth-child(odd) {
-    margin-right: 0;
+  img {
+    z-index: -999;
+    filter: grayscale(100%);
+    opacity: 0.9;
+  }
 
-    @media (min-width: ${breakpoints.mobileMax}) {
-        margin-right: 7%;
+  :hover {
+
+    img {
+        transform: scale(1.03);
+        transition-duration: 0.3s;
+        filter: grayscale(0%);
+        opacity: 1;
     }
   }
 
   @media (max-width: ${breakpoints.mobileMax}) {
-    width: 100%;
-}
-
-  :hover {
-
-    ${ProjectOverlay} {
-      opacity: 1;
-    }
-
-    div {
-        transform: scale(1.03);
-        transition-duration: 0.3s;
-    }
-
-    img {
-      filter: grayscale(100%);
-    }
-
-    ${Paragraph}{
-      transition-duration: 0.3s;
-      opacity: 1;
-
-      > ${Line}{
-        width: 20%;
-      }
-    }
-    
+    width: 80%;
   }
-  
+`;
+
+const Container = styled.div`
+  width: 85%;
+
+  @media (max-width: ${breakpoints.mobileMax}) {
+    width: 90%;
+  }
+`;
+
+const ProjectSegment = styled.div`
+    display: flex;
+    flex: wrap;
+    width: 100%;
+    margin-top: 20px;
+    justify-content: space-between;
+
+    @media (max-width: ${breakpoints.mobileMax}) {
+      display: block;
+    }
+`;
+
+const DescriptionText = styled(Paragraph)`
+  font-style: italic;
+  font-size: 0.85rem;
+  margin-bottom: 5px;
+  color: #212529;
+`;
+
+const NameTitle = styled(SubHeading)`
+    font-size: 4.5rem;
+    margin-bottom: 20px;
+
+    @media (max-width: ${breakpoints.mobileMax}) {
+      font-size: 3rem;
+    }
 `;
 
 const IndexPage = ({ data }) => {
 
   return (
+    <>
   <Layout>
     <SEO title="Home" />
-    <div style={{maxWidth: '725px', marginTop: '20%'}}>
+    <div style={{maxWidth: '725px', marginTop: '10%'}}>
+      <NameTitle>Nicole Dwenger</NameTitle>
       <DecorationLine/>
-      <Heading>Hi, I'm Nicole, front end <span>developer</span>, <span>designer</span>, and strategic <span>communicator</span>.</Heading>
-      <SubHeading>Currently an intern at General Motors and pursuing two degrees at Purdue University.</SubHeading>
+      <Fade bottom>
+        <Heading>Front end <span>developer</span> and <span>designer</span> with a <span>strategic communication</span> background</Heading>
+        <SubHeading>Currently a social media analytics intern at General Motors</SubHeading>
+      </Fade>
     </div>
     <SocialButtons />
     <ProfilePhoto src={profilePhoto} alt="Nicole Dwenger Profile" />
     
     
+    <SubHeading id="work" style={{marginTop: '20%'}}>Latest projects</SubHeading>
+    </Layout>
 
-    <SubHeading id="works" style={{marginTop: '25%'}}>Selected works</SubHeading>
+   
     <WorkContainer>
         {data.allMarkdownRemark.edges.map(({ node }) => (
           <ProjectContainer key={node.id}>
-            <ProjectOverlayContainer>
-             <Img 
-                fluid={node.frontmatter.featuredImage.childImageSharp.fluid} 
-                alt={node.frontmatter.title}
-                style={{ 
-                  boxShadow: '0px 4px 10px 0 #efefef',
-                  borderRadius: '5px'}}
+           
+            <WorkLink to={node.fields.slug}>
+            <Container>
+                <img 
+                  src={node.frontmatter.featuredImage.publicURL} 
+                  alt={node.frontmatter.title}
+                  style={{ 
+                    marginBottom: '2px'}}
                  /> 
-
-            <ProjectOverlay>
-              <ProjectText>
-              <WorkLink to={node.fields.slug}>
-            <WorkTitle>
-                {node.frontmatter.title}{" "}
-              </WorkTitle>
-              <Paragraph>
-                View Project
-                  <Line></Line>
-              </Paragraph>
+              
+              <ProjectSegment>
+              <Segment>
+                <WorkTitle>
+                  {node.frontmatter.title}{" "}
+                </WorkTitle>
+              </Segment>
+              <Segment>
+                <DescriptionText>
+                  {node.frontmatter.type} - {node.frontmatter.year}
+                </DescriptionText>
+              </Segment>
+              </ProjectSegment>
+              </Container>
             </WorkLink>
-              </ProjectText>
-            
-            </ProjectOverlay>
-            </ProjectOverlayContainer>
+           
             </ProjectContainer>
         ))}
     </WorkContainer>
-
-    {/* <WorkContainer>
-        {data.allMarkdownRemark.edges.map(({ node }) => (
-          <ProjectContainer key={node.id}>
-            <WorkLink to={node.fields.slug}>
-             <Img 
-                fluid={node.frontmatter.featuredImage.childImageSharp.fluid} 
-                alt={node.frontmatter.title}
-                style={{ 
-                  boxShadow: '0px 4px 10px 0 #efefef',
-                  borderRadius: '5px'}}
-                 /> 
-                <WorkTitle>
-                {node.frontmatter.title}{" "}
-              </WorkTitle>
-              <Paragraph>
-                View Project
-                  <Line></Line>
-              </Paragraph>
-            </WorkLink>
-            </ProjectContainer>
-        ))}
-    </WorkContainer> */}
     
-    <About />
-    <Resume />
-  </Layout>
+    <Layout>
+      <About />
+      <Resume />
+      <Footer />
+    </Layout>
+    </>
   )
 }
 
@@ -272,13 +272,10 @@ export const query = graphql`
           html
           frontmatter {
             title
+            year
+            type
             featuredImage {
               publicURL
-              childImageSharp {
-                fluid(maxWidth: 800) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
             }
           }
           fields {

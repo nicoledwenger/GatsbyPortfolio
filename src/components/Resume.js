@@ -13,6 +13,11 @@ const ResumeHeader = styled.h3`
     font-weight: 700;
     font-size: 2rem;
     color: #212529;
+    padding-top: 20px;
+
+    @media (max-width: ${breakpoints.mobileMax}) {
+        font-size: 1.5rem;
+    }
 `;
 
 const ResumeSubText = styled(Paragraph)`
@@ -32,7 +37,6 @@ const ResumeWrapper = styled.div`
 `;
 
 const ResumeYear = styled(Paragraph)`
-    padding-left: 17px;
     margin-bottom: 10px;
     font-size: 0.8rem;
     font-weight: 800;
@@ -68,30 +72,53 @@ const LanguageTable = styled.div`
     }
 `;
 
+const ResumeContainer = styled.div`
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+
+    @media (max-width: ${breakpoints.mobileMax}) {
+      display: block;
+      flex-wrap: nowrap;
+  }
+`;
+
+const Container = styled.div` 
+  width: 45%;
+  transition-duration: 0.3s;
+
+  :nth-child(odd) {
+    margin-right: 0px;
+
+    @media (min-width: ${breakpoints.mobileMax}) {
+        margin-right: 8%;
+    }
+  }
+
+  @media (max-width: ${breakpoints.mobileMax}) {
+    width: 100%;
+}
+`;
+
 const Resume = () => (
     <div id="resume" style={{marginTop: '20%'}}>
         <SubHeading>Resume</SubHeading>
-        <ResumeHeader>Education</ResumeHeader>
-        <ResumeYear>2017 - 2021</ResumeYear>
-        <ResumeWrapper>
-            <ResumeText>Purdue University / <strong>Bachelor of Science</strong></ResumeText>
-            <ResumeSubText>West Lafayette, IN <br /> Computer Graphics Technology</ResumeSubText>
-
-            <ResumeText>Purdue University / <strong>Bachelor of Arts</strong></ResumeText>
-            <ResumeSubText>West Lafayette, IN <br /> Communication</ResumeSubText>
-            <Paragraph>Overall GPA / <strong>3.83</strong></Paragraph>
-        </ResumeWrapper>
-
+        <ResumeContainer>
+        <Container>
+        
         <ResumeHeader>Experience</ResumeHeader>
-        <ResumeYear>Aug 2019 - June 2020</ResumeYear>
         <ResumeWrapper>
+        <ResumeYear>Aug 2019 - June 2020</ResumeYear>
+        
             <ResumeText><strong>Web Team Intern</strong><br />Purdue Agricultural Communication</ResumeText>
             <ResumeSubText>West Lafayette, IN <br /> 
             Update WordPress and Sharepoint pages while meeting branding standards and client requests</ResumeSubText>
-        </ResumeWrapper>
+        
 
         <ResumeYear>Aug 2019 - May 2020</ResumeYear>
-        <ResumeWrapper>
+
             <ResumeText><strong>Front End Developer</strong><br/>CDW</ResumeText>
             <ResumeSubText>Vernon Hills, IL <br /> 
             Developed atomic components and conducted unit code testing for front end Adobe Experience Manager codebase</ResumeSubText>
@@ -99,42 +126,57 @@ const Resume = () => (
             <ResumeText><strong>Undergraduate Researcher</strong><br />Purdue Polytechnic Institute</ResumeText>
             <ResumeSubText>West Lafayette, IN <br /> 
             Automated a worksheet process by developing a website and creating surveys to reduce fatigue</ResumeSubText>
-        </ResumeWrapper>
+
 
         <ResumeYear>Jun 2019 - Aug 2019</ResumeYear>
-        <ResumeWrapper>
+
             <ResumeText><strong>Front End Developer Intern</strong><br/>CDW</ResumeText>
             <ResumeSubText>Vernon Hills, IL<br /> 
             Wrote standards-compliant code while working with internal development teams to integrate with back-end technology</ResumeSubText>
-        </ResumeWrapper>
+
 
         <ResumeYear>Aug 2019 - Dec 2018</ResumeYear>
-        <ResumeWrapper>
             <ResumeText><strong>Photography Editor</strong><br/>The Purdue Exponent</ResumeText>
             <ResumeSubText>West Lafayette, IN <br /> 
             Managed a team of photographers and submitted images within deadlines to supplement articles</ResumeSubText>
+
+        </ResumeWrapper>
+        </Container>
+
+        <Container>
+        <ResumeHeader>Education</ResumeHeader>
+        <ResumeWrapper>
+        <ResumeYear>2017 - 2021</ResumeYear>
+            <ResumeText>Purdue University / <strong>Bachelor of Science</strong></ResumeText>
+            <ResumeSubText>West Lafayette, IN <br /> Computer Graphics Technology</ResumeSubText>
+
+            <ResumeText>Purdue University / <strong>Bachelor of Arts</strong></ResumeText>
+            <ResumeSubText>West Lafayette, IN <br /> Communication</ResumeSubText>
+            <Paragraph>Overall GPA / <strong>3.85</strong></Paragraph>
         </ResumeWrapper>
 
         <ResumeHeader>Involvement</ResumeHeader>
-        <ResumeYear>Aug 2019 - Present</ResumeYear>
         <ResumeWrapper>
+        <ResumeYear>Aug 2019 - Present</ResumeYear>
+        
             <ResumeText><strong>Public Relations Student Society of America</strong></ResumeText>
             <ResumeSubText>Directory of Internal Communication <br/>
             Gathered and maintained content for the monthly newsletter to be distributed to the organization</ResumeSubText>
         </ResumeWrapper>
 
         <ResumeHeader>Honors and Awards</ResumeHeader>
-        <ResumeYear>May 2020</ResumeYear>
         <ResumeWrapper>
+        <ResumeYear>May 2020</ResumeYear>
+    
             <ResumeText><strong>Purdue Polytechnic Institute Undergraduate Research Poster Winner</strong></ResumeText>
             <ResumeSubText>Purdue Polytechnic Institute </ResumeSubText>
-        </ResumeWrapper>
 
         <ResumeYear>Aug 2017 - Present</ResumeYear>
-        <ResumeWrapper>
             <ResumeText><strong>College Dean's List</strong></ResumeText>
             <ResumeSubText>Purdue Polytechnic Institute </ResumeSubText>
         </ResumeWrapper>
+        </Container>
+        </ResumeContainer>
         
         <br />
         <ResumeHeader>Languages and Software</ResumeHeader>

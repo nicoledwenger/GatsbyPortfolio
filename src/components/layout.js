@@ -6,7 +6,6 @@ import { breakpoints } from "./Breakpoints"
 import styled from "styled-components/macro";
 
 import Header from "./Header"
-import Footer from './Footer'
 import "./layout.css"
 
 const Layout = ({ children }) => {
@@ -45,7 +44,6 @@ const Layout = ({ children }) => {
         <main>
           {children}
         </main>
-        <Footer />
       </LayoutContainer>
     </>
   )

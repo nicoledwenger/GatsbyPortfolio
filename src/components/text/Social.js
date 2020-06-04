@@ -15,19 +15,21 @@ const SocialContainer = styled.div`
       color: #303030;
       transition: 0.3s ease;
     }
+
+    background: transparent;
   }
 `;
 
 const SocialButtons = () => (
     <SocialContainer> 
         <a href="https://www.instagram.com/nicoledwenger/" target='_blank' title="Nicole Dwenger Instagram">
-            <FontAwesomeIcon className="fa-2x" icon={faInstagram} />
+            <FontAwesomeIcon className="fa-lg" icon={faInstagram} />
         </a>
         <a href="https://www.linkedin.com/in/nicoledwenger/" target='_blank' title="Nicole Dwenger LinkedIn">
-            <FontAwesomeIcon className="fa-2x" icon={faLinkedin} />
+            <FontAwesomeIcon className="fa-lg" icon={faLinkedin} />
         </a>
         <a href="https://github.com/nicoledwenger" target='_blank' title="Nicole Dwenger Github">
-            <FontAwesomeIcon className="fa-2x" icon={faGithub} />
+            <FontAwesomeIcon className="fa-lg" icon={faGithub} />
         </a>
     </SocialContainer>
 )

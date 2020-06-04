@@ -1,17 +1,19 @@
 import styled from "styled-components/macro";
 import { breakpoints } from "../Breakpoints";
-import "typeface-open-sans"
 
 const WorkSubHeading = styled.h2`
-    font-family: "Open Sans";
-    font-weight: 700;
-    font-size: 2rem;
-    color: #212529;
+    font-family: balboa, sans-serif;
+    font-weight: 400;
+    font-size: 4rem;
+    color: #d2d2d2;
     width: 450px;
-    margin-top: 20px;
+    line-height: 90px;
+    text-transform: uppercase;
 
   @media (max-width: ${breakpoints.mobileMax}) {
     font-size: 2.25rem;
+    line-height: 0;
+    margin-bottom: -20px;
   }
 `;
 

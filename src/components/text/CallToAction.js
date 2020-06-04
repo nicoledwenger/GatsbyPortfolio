@@ -12,7 +12,6 @@ const CallToAction =  styled.h3`
 
     > a:hover {
         cursor: pointer;
-        color: #0077ff;
         text-decoration: none;
         transition: 0.3s ease;
     }

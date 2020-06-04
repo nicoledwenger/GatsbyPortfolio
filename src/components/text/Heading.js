@@ -14,7 +14,7 @@ const Heading = styled.h1`
     }
 
     @media (max-width: ${breakpoints.mobileMax}) {
-      font-size: 2.25rem;
+      font-size: 1.8rem;
     }
 `;
 
