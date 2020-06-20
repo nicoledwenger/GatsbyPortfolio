@@ -14,7 +14,7 @@ const Navigation = styled.nav`
     @media (max-width: ${breakpoints.mobileMax}) {
         position: fixed;
         height: 100%;
-        top: 90%;
+        top: 88%;
         left: 0;
         background-color: #eaeaea;
     }

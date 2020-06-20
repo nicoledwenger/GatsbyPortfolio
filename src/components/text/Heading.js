@@ -9,8 +9,14 @@ const Heading = styled.h1`
     font-size: 2.82rem;
 
     > span {
-        color: #0077ff;
-        
+      background:
+        linear-gradient(
+          to bottom, #0077ff 0%,
+          rgba(0, 119, 255,0.8) 100%
+        );
+      background-position: 0 85%;
+      background-repeat: repeat-x;
+      background-size: 4px 25%;
     }
 
     @media (max-width: ${breakpoints.mobileMax}) {
