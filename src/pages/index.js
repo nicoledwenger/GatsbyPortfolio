@@ -205,13 +205,13 @@ const IndexPage = ({ data }) => {
   return (
     <>
   <Layout>
-    <SEO title="Home" />
+    <SEO title="Home"/>
     <div style={{maxWidth: '725px', marginTop: '10%'}}>
       <NameTitle>Nicole Dwenger</NameTitle>
       <DecorationLine/>
       <Fade bottom>
         <Heading>Front end <span>developer</span> and <span>designer</span> with a background in <span>strategic communication</span></Heading>
-        <SubHeading>Currently a social center of expertise intern at General Motors</SubHeading>
+        <SubHeading>Currently working as a Global Connected Customer Experience intern at General Motors</SubHeading>
       </Fade>
     </div>
     <SocialButtons />

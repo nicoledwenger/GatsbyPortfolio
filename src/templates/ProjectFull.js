@@ -115,7 +115,8 @@ export default ({ data }) => {
     let image3Fluid = post.frontmatter.image3.publicURL
     return (
       <>
-      <SEO title={`Projects | ${post.frontmatter.title}`}/>
+      <SEO 
+        title={`Projects | ${post.frontmatter.title}`} />
       <HeroContainer>
           <HeroSegement>
               <img 
