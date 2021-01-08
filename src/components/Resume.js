@@ -7,6 +7,7 @@ import "typeface-muli"
 import { breakpoints } from "./Breakpoints"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCircle } from "@fortawesome/free-solid-svg-icons"
+import CallToAction from "./text/CallToAction"
 
 const ResumeHeader = styled.h3`
     font-family: "Open Sans";
@@ -103,18 +104,33 @@ const Container = styled.div`
 `;
 
 const Resume = () => (
-    <div id="resume" style={{marginTop: '20%'}}>
+    <div id="resume" style={{marginTop: '10%'}}>
         <SubHeading>Resume</SubHeading>
+        <CallToAction><a href={`Dwenger-Nicole-FED-Resume.pdf`} download>Download PDF</a></CallToAction>
         <ResumeContainer>
         <Container>
         
         <ResumeHeader>Experience</ResumeHeader>
         <ResumeWrapper>
+        <ResumeYear>Aug 2020 - Present</ResumeYear>
+        <ResumeText><strong>Lead Market Research Analyst</strong><br />Boiler Communication</ResumeText>
+            <ResumeSubText>West Lafayette, IN <br /> 
+            Led a team of market researchers to provide impactful and insightful audience analysis across seven campaign teams</ResumeSubText>
+
+        <ResumeYear>Aug 2019 - Present</ResumeYear>
+        <ResumeText><strong>Undergraduate Researcher</strong><br />Purdue Polytechnic Institute</ResumeText>
+            <ResumeSubText>West Lafayette, IN <br /> 
+            Developed and maintained a website with Gatsby.JS for students to use in a data visualization course in upcoming semesters</ResumeSubText>
+
+        <ResumeYear>June 2020 - Aug 2020</ResumeYear>
+        <ResumeText><strong>Social Center of Expertise Intern</strong> <br />General Motors</ResumeText>
+        <ResumeSubText>Detroit, MI <br /> Benchmarked and researched social care strategies across the automotive industry and other markets for customer satisfaction improvements</ResumeSubText>
+
         <ResumeYear>Aug 2019 - June 2020</ResumeYear>
         
             <ResumeText><strong>Web Team Intern</strong><br />Purdue Agricultural Communication</ResumeText>
             <ResumeSubText>West Lafayette, IN <br /> 
-            Update WordPress and Sharepoint pages while meeting branding standards and client requests</ResumeSubText>
+            Maintained 500+ WordPress and Sharepoint pages while designing effective mockups to meet client needs</ResumeSubText>
         
 
         <ResumeYear>Aug 2019 - May 2020</ResumeYear>
@@ -122,11 +138,6 @@ const Resume = () => (
             <ResumeText><strong>Front End Developer</strong><br/>CDW</ResumeText>
             <ResumeSubText>Vernon Hills, IL <br /> 
             Developed atomic components and conducted unit code testing for front end Adobe Experience Manager codebase</ResumeSubText>
-
-            <ResumeText><strong>Undergraduate Researcher</strong><br />Purdue Polytechnic Institute</ResumeText>
-            <ResumeSubText>West Lafayette, IN <br /> 
-            Automated a worksheet process by developing a website and creating surveys to reduce fatigue</ResumeSubText>
-
 
         <ResumeYear>Jun 2019 - Aug 2019</ResumeYear>
 
@@ -160,12 +171,22 @@ const Resume = () => (
         <ResumeYear>Aug 2019 - Present</ResumeYear>
         
             <ResumeText><strong>Public Relations Student Society of America</strong></ResumeText>
-            <ResumeSubText>Directory of Internal Communication <br/>
-            Gathered and maintained content for the monthly newsletter to be distributed to the organization</ResumeSubText>
+            <ResumeSubText>Director of Internal Communication <br/>
+            Designed, developed, and maintained a website to house resources and monthly modules for members</ResumeSubText>
         </ResumeWrapper>
 
         <ResumeHeader>Honors and Awards</ResumeHeader>
         <ResumeWrapper>
+        <ResumeYear>Nov 2020</ResumeYear>
+    
+        <ResumeText><strong>Mortar Board Design Winner</strong></ResumeText>
+        <ResumeSubText>Purdue Mortar Board</ResumeSubText>
+
+        <ResumeYear>Aug 2020</ResumeYear>
+    
+            <ResumeText><strong>Purdue OUR Scholars</strong></ResumeText>
+            <ResumeSubText>Purdue Polytechnic Institute </ResumeSubText>
+
         <ResumeYear>May 2020</ResumeYear>
     
             <ResumeText><strong>Purdue Polytechnic Institute Undergraduate Research Poster Winner</strong></ResumeText>
@@ -226,7 +247,6 @@ const Resume = () => (
                 </Paragraph>
             </div>
         </LanguageTable>
-    
     </div>
 )
 

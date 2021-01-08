@@ -17,6 +17,7 @@ const Navigation = styled.nav`
         top: 88%;
         left: 0;
         background-color: #eaeaea;
+        z-index: 999;
     }
 `
 

@@ -16,9 +16,9 @@ const Copyright = styled.div`
 const Footer = () => (
 
   <footer id="contact" style={{marginBottom: '25px'}}>
-    <Heading>Let's keep in touch</Heading>
-    <Paragraph>I'm happy to answer any questions or business inquiries. Feel free to reach out or connect with me on social media.</Paragraph>
-    <CallToAction><a href="mailto: ndwenge@purdue.edu">ndwenge@purdue.edu</a></CallToAction>
+    <Heading>Get in touch</Heading>
+    <Paragraph>Think I fit your design or development project? Feel free to contact me and let's chat!</Paragraph>
+    <CallToAction><a href="mailto: nicole.ldwenger@yahoo.com">nicole.ldwenger@yahoo.com</a></CallToAction>
     <SocialButtons />
     <Copyright>Design and code by Nicole Dwenger © {new Date().getFullYear()}</Copyright>
   </footer>

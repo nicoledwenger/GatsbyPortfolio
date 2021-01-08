@@ -6,6 +6,7 @@ import styled from "styled-components/macro"
 const SocialContainer = styled.div`
   display: flex;
   flex-direction: row;
+  padding-bottom: 30px;
 
   > a {
     color: #707070;

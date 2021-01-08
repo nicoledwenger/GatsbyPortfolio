@@ -41,6 +41,7 @@ template {
   display: none;
 }
 a {
+  color: hsla(0, 0%, 0%, 0.8);
   background:
      linear-gradient(
        to bottom, #0077ff 0%,
@@ -57,6 +58,8 @@ a:active,
 a:hover {
   outline-width: 0;
   background-size: 4px 50px;
+  color: hsla(0, 0%, 0%, 0.8);
+  text-decoration: none;
 }
 abbr[title] {
   border-bottom: none;

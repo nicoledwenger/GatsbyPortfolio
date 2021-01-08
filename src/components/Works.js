@@ -42,7 +42,7 @@ const WorkTitle = styled.h3`
 `;
 
 const WorkContainer = styled.div`
-    margin-top: 25%;
+    margin-top: 10%;
 `;
 
 const WorkImage = styled.img`

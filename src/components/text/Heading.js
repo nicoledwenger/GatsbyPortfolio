@@ -5,8 +5,8 @@ import "typeface-open-sans"
 const Heading = styled.h1`
     font-family: "Open Sans";
     font-weight: 700;
-    margin-top: 15%;
-    font-size: 2.82rem;
+    margin-top: 10%;
+    font-size: 2.5rem;
 
     > span {
       background:

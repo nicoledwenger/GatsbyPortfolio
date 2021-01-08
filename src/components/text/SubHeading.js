@@ -5,7 +5,7 @@ import "typeface-open-sans"
 const SubHeading = styled.h2`
   font-family: "Open Sans";
   font-weight: 700;
-  font-size: 2.82rem;
+  font-size: 2.5rem;
   margin-bottom: 40px;
 
   @media (max-width: ${breakpoints.mobileMax}) {
