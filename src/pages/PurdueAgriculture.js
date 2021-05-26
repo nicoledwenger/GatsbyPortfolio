@@ -1,4 +1,7 @@
 import React from "react"
+import { graphql } from 'gatsby'
+import Img from 'gatsby-image'
+
 import Layout from "../components/layout"
 import Heading from '../components/text/Heading'
 import styled from "styled-components"
@@ -7,13 +10,21 @@ import Paragraph from '../components/text/Paragraph'
 import CallToAction from "../components/text/CallToAction"
 import WorkSubHeading from '../components/text/WorkSubHeading'
 import SEO from "../components/seo"
-import featuredImgFluid from '../images/mockups/purdue_agriculture_mockup.jpg'
-import homePage from '../images/full-page/purdue-agriculture-home.jpg'
-import otherPage from '../images/full-page/full-mockup/purdue-agriculture-other.jpg'
-import prevProject from '../images/mockups/hank-development-mockup.jpg'
-import nextProject from '../images/mockups/BBBS_desktop_mockup.jpg'
 import Button from '../components/UI/Button'
 import RoleTable from '../components/UI/RoleTable'
+
+const ProjectContainer = styled.div`
+    width: 100%;
+    margin-top: 80px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+
+    @media (max-width: ${breakpoints.mobileMax}) {
+      display: block;
+      flex-wrap: nowrap;
+  }
+`;
 
 const HeroContainer = styled.div`
     width: 100vw;
@@ -53,19 +64,6 @@ const HeroSegement = styled.div`
   }
 `;
 
-const ProjectContainer = styled.div`
-    width: 100%;
-    margin-top: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-end;
-
-    @media (max-width: ${breakpoints.mobileMax}) {
-      display: block;
-      flex-wrap: nowrap;
-  }
-`;
-
 const Container = styled.div` 
   width: 48%;
   margin-bottom: 80px;
@@ -80,22 +78,31 @@ const Container = styled.div`
   }
 
   @media (max-width: ${breakpoints.mobileMax}) {
-      width: 100%;
-  }
+    width: 100%;
+}
 `;
 
 const ImageContainer = styled.div`
   align-items: center;
   width: 100vw;
-  margin: 0 auto;
   text-align: center;
 
-  > img {
-    margin-bottom: 80px;
+  > .gatsby-image-wrapper {
     width: 70%;
+    margin: 0 auto;
 
     @media (max-width: ${breakpoints.mobileMax}) {
       width: 100%;
+    }
+  }
+
+  ${Paragraph} {
+    width: 60%;
+    margin: 0 auto;
+    padding-bottom: 20px;
+
+    @media (max-width: ${breakpoints.mobileMax}) {
+      width: 85%;
     }
   }
 `;
@@ -120,7 +127,7 @@ const ButtonContainer = styled.div`
   }
 `;
 
-const PurdueAgriculture = () => {
+const PurdueAgriculture = ({data}) => {
 
   return (
     <>
@@ -128,11 +135,7 @@ const PurdueAgriculture = () => {
         title={`Projects | Purdue Agriculture Media Outreach`} />
       <HeroContainer>
           <HeroSegement>
-              <img 
-              src={featuredImgFluid} 
-              alt="Purdue Agriculture Media Outreach Mockup" 
-              style={{ 
-                boxShadow: '0px 4px 10px 0 #dedede'}}/>
+          <Img fluid={data.featuredImgFluid.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt="Purdue Agriculture Media Outreach mockup" />
             </HeroSegement>
 
             <HeroSegement> 
@@ -178,10 +181,7 @@ const PurdueAgriculture = () => {
       </Layout>
 
       <ImageContainer>
-        <img src={homePage} 
-          alt="Purdue Agriculture Media Outreach Home Page"
-          style={{ 
-            boxShadow: '0px 4px 10px 0 #dedede'}} />
+      <Img fluid={data.homePage.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt="Purdue Agriculture Media Outreach homepage" />
       </ImageContainer>
 
         <Layout>
@@ -204,31 +204,22 @@ const PurdueAgriculture = () => {
 
     
       <ImageContainer>
-        <img src={otherPage} 
-            alt="Purdue Agriculture Media Outreach full results"
-            style={{ 
-              boxShadow: '0px 4px 10px 0 #dedede'}} />
+      <Img fluid={data.otherPage.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt="Purdue Agriculture Media Outreach other pages" />
       </ImageContainer>
 
       <Layout>
-        <WorkSubHeading style={{marginTop: '5%', marginBottom: '50px'}}>More Projects</WorkSubHeading>
+        <WorkSubHeading style={{marginTop: '18%', marginBottom: '50px'}}>More Projects</WorkSubHeading>
 
         <ProjectContainer>
           <ButtonContainer>
             <Button to="/HankDevelopment">
-            <img src={prevProject} 
-                  alt="HANK Development mockup"
-                  style={{ 
-                    boxShadow: '0px 4px 10px 0 #dedede'}} />
+            <Img fluid={data.prevProject.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt="HANK Development homepage" />
             </Button>
             </ButtonContainer>
 
             <ButtonContainer>
             <Button to="/BBBS">
-            <img src={nextProject} 
-                  alt="BBBS of GL mockup"
-                  style={{ 
-                    boxShadow: '0px 4px 10px 0 #dedede'}} />
+            <Img fluid={data.nextProject.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt="BBBS of Greater Lafayette mockup" />
             </Button>
             </ButtonContainer>
         </ProjectContainer>
@@ -241,3 +232,51 @@ const PurdueAgriculture = () => {
 }
 
 export default PurdueAgriculture
+
+export const query = graphql`
+  query {
+    featuredImgFluid: file(relativePath: { eq: "mockups/purdue_agriculture_mockup.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 792, maxHeight: 594) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+
+    homePage: file(relativePath: { eq: "full-page/purdue-agriculture-home.jpg" }) {
+      ...fullPageImages
+    }
+
+    otherPage: file(relativePath: { eq: "full-page/full-mockup/purdue-agriculture-other.jpg" }) {
+      ...fullPageImages
+    }
+
+    prevProject: file(relativePath: { eq: "mockups/hank-development-mockup.jpg" }) {
+      ...otherProjects
+    }
+
+    nextProject: file(relativePath: { eq: "mockups/BBBS_desktop_mockup.jpg" }) {
+      ...otherProjects
+    }
+  }
+`
+
+export const fullPageImages = graphql`
+  fragment fullPageImages on File {
+    childImageSharp {
+      fluid(maxWidth: 1008, maxHeight: 748) {
+        ...GatsbyImageSharpFluid
+      }
+    }
+  }
+`
+
+export const otherProjects = graphql`
+  fragment otherProjects on File {
+    childImageSharp {
+      fluid(maxWidth: 542, maxHeight: 410) {
+        ...GatsbyImageSharpFluid
+      }
+    }
+  }
+`

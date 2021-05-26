@@ -1,4 +1,7 @@
 import React from "react"
+import { graphql } from 'gatsby'
+import Img from 'gatsby-image'
+
 import Layout from "../components/layout"
 import Heading from '../components/text/Heading'
 import styled from "styled-components"
@@ -7,18 +10,12 @@ import Paragraph from '../components/text/Paragraph'
 import CallToAction from "../components/text/CallToAction"
 import WorkSubHeading from '../components/text/WorkSubHeading'
 import SEO from "../components/seo"
-import featuredImgFluid from '../images/mockups/corvette_mobile_mockup.jpg'
-import homePage from '../images/full-page/corvette-home.jpg'
-import otherPage from '../images/full-page/full-mockup/corvette-other.jpg'
-import prevProject from '../images/mockups/calaveras_phone_mockup.jpg'
-import nextProject from '../images/mockups/tesla_mockup.jpg'
 import Button from '../components/UI/Button'
 import RoleTable from '../components/UI/RoleTable'
-import wireframe from '../images/wireframes/corvette-encyclopedia.jpg'
 
 const ProjectContainer = styled.div`
     width: 100%;
-    margin-top: 20px;
+    margin-top: 80px;
     display: flex;
     flex-wrap: wrap;
     align-items: flex-end;
@@ -88,12 +85,11 @@ const Container = styled.div`
 const ImageContainer = styled.div`
   align-items: center;
   width: 100vw;
-  margin: 0 auto;
   text-align: center;
 
-  > img {
-    margin-bottom: 80px;
+  > .gatsby-image-wrapper {
     width: 70%;
+    margin: 0 auto;
 
     @media (max-width: ${breakpoints.mobileMax}) {
       width: 100%;
@@ -131,7 +127,7 @@ const ButtonContainer = styled.div`
   }
 `;
 
-const CorvetteEncyclopedia = () => {
+const CorvetteEncyclopedia = ({data}) => {
 
   return (
     <>
@@ -139,11 +135,7 @@ const CorvetteEncyclopedia = () => {
         title={`Projects | Chevrolet Corvette Encyclopedia`} />
       <HeroContainer>
           <HeroSegement>
-              <img 
-              src={featuredImgFluid} 
-              alt="Chevrolet Corvette Encyclopedia Mockup" 
-              style={{ 
-                boxShadow: '0px 4px 10px 0 #dedede'}}/>
+          <Img fluid={data.featuredImgFluid.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt="Chevrolet Corvette Encyclopedia mockup" />
             </HeroSegement>
 
             <HeroSegement> 
@@ -173,10 +165,7 @@ const CorvetteEncyclopedia = () => {
 
       <ImageContainer>
       <Paragraph>This wireframe helped me visualize how aspects of my site needed to change amongst desktop and mobile versions. With consideration on how a user will interact with the information, I wanted the user interface design to remain simplistic and focus on the model information.</Paragraph>
-        <img src={wireframe} 
-          alt="Corvette Encyclopedia wireframe"
-          style={{ 
-            boxShadow: '0px 4px 10px 0 #dedede'}} />
+      <Img fluid={data.wireframe.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt="Corvette Encyclopedia wireframe" />
       </ImageContainer>
        
       <Layout>
@@ -199,10 +188,7 @@ const CorvetteEncyclopedia = () => {
       </Layout>
 
       <ImageContainer>
-        <img src={homePage} 
-          alt="Chevrolet Corvette Encyclopedia Home Page"
-          style={{ 
-            boxShadow: '0px 4px 10px 0 #dedede'}} />
+      <Img fluid={data.homePage.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt="Corvette Encyclopedia homepage" />
       </ImageContainer>
 
         <Layout>
@@ -225,31 +211,22 @@ const CorvetteEncyclopedia = () => {
 
     
       <ImageContainer>
-        <img src={otherPage} 
-            alt="Chevrolet Corvette Encyclopedia full results"
-            style={{ 
-              boxShadow: '0px 4px 10px 0 #dedede'}} />
+      <Img fluid={data.otherPage.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt="Corvette Encyclopedia other pages" />
       </ImageContainer>
 
       <Layout>
-        <WorkSubHeading style={{marginTop: '5%', marginBottom: '50px'}}>More Projects</WorkSubHeading>
+        <WorkSubHeading style={{marginTop: '18%', marginBottom: '50px'}}>More Projects</WorkSubHeading>
 
         <ProjectContainer>
           <ButtonContainer>
             <Button to="/CalaverasStatePark">
-            <img src={prevProject} 
-                  alt="Calaveras State Park Mockup"
-                  style={{ 
-                    boxShadow: '0px 4px 10px 0 #dedede'}} />
+            <Img fluid={data.prevProject.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt="Calaveras State Park mobile pages" />
             </Button>
             </ButtonContainer>
 
             <ButtonContainer>
             <Button to="/TeslaPitch">
-            <img src={nextProject} 
-                  alt="Tesla Pitch pages"
-                  style={{ 
-                    boxShadow: '0px 4px 10px 0 #dedede'}} />
+            <Img fluid={data.nextProject.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt="Tesla pitch pages" />
             </Button>
             </ButtonContainer>
         </ProjectContainer>
@@ -260,3 +237,55 @@ const CorvetteEncyclopedia = () => {
 }
 
 export default CorvetteEncyclopedia
+
+export const query = graphql`
+  query {
+    featuredImgFluid: file(relativePath: { eq: "mockups/corvette_mobile_mockup.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 792, maxHeight: 594) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+
+    wireframe: file(relativePath: { eq: "wireframes/corvette-encyclopedia.jpg" }) {
+      ...fullPageImages
+    }
+
+    homePage: file(relativePath: { eq: "full-page/corvette-home.jpg" }) {
+      ...fullPageImages
+    }
+
+    otherPage: file(relativePath: { eq: "full-page/full-mockup/corvette-other.jpg" }) {
+      ...fullPageImages
+    }
+
+    prevProject: file(relativePath: { eq: "mockups/calaveras_phone_mockup.jpg" }) {
+      ...otherProjects
+    }
+
+    nextProject: file(relativePath: { eq: "mockups/tesla_mockup.jpg" }) {
+      ...otherProjects
+    }
+  }
+`
+
+export const fullPageImages = graphql`
+  fragment fullPageImages on File {
+    childImageSharp {
+      fluid(maxWidth: 1008, maxHeight: 748) {
+        ...GatsbyImageSharpFluid
+      }
+    }
+  }
+`
+
+export const otherProjects = graphql`
+  fragment otherProjects on File {
+    childImageSharp {
+      fluid(maxWidth: 542, maxHeight: 410) {
+        ...GatsbyImageSharpFluid
+      }
+    }
+  }
+`

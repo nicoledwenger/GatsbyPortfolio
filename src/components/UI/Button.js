@@ -37,7 +37,7 @@ const PreviousButton =  styled(Link)`
 
     :hover {
 
-        img {
+        .gatsby-image-wrapper {
             transform: scale(1.03);
             transition-duration: 0.3s;
             filter: grayscale(0%);

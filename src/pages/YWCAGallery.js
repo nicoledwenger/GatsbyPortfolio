@@ -1,4 +1,7 @@
 import React from "react"
+import { graphql } from 'gatsby'
+import Img from 'gatsby-image'
+
 import Layout from "../components/layout"
 import Heading from '../components/text/Heading'
 import styled from "styled-components"
@@ -7,17 +10,12 @@ import Paragraph from '../components/text/Paragraph'
 import CallToAction from "../components/text/CallToAction"
 import WorkSubHeading from '../components/text/WorkSubHeading'
 import SEO from "../components/seo"
-import featuredImgFluid from '../images/mockups/ywca_mockup.jpg'
-import homePage from '../images/full-page/full-mockup/ywca-front.jpg'
-import otherPage from '../images/full-page/full-mockup/ywca-other.jpg'
-import prevProject from '../images/mockups/tesla_mockup.jpg'
-import nextProject from '../images/mockups/hank-development-mockup.jpg'
 import Button from '../components/UI/Button'
 import RoleTable from '../components/UI/RoleTable'
 
 const ProjectContainer = styled.div`
     width: 100%;
-    margin-top: 20px;
+    margin-top: 80px;
     display: flex;
     flex-wrap: wrap;
     align-items: flex-end;
@@ -87,15 +85,24 @@ const Container = styled.div`
 const ImageContainer = styled.div`
   align-items: center;
   width: 100vw;
-  margin: 0 auto;
   text-align: center;
 
-  > img {
-    margin-bottom: 80px;
+  > .gatsby-image-wrapper {
     width: 70%;
+    margin: 0 auto;
 
     @media (max-width: ${breakpoints.mobileMax}) {
       width: 100%;
+    }
+  }
+
+  ${Paragraph} {
+    width: 60%;
+    margin: 0 auto;
+    padding-bottom: 20px;
+
+    @media (max-width: ${breakpoints.mobileMax}) {
+      width: 85%;
     }
   }
 `;
@@ -120,7 +127,7 @@ const ButtonContainer = styled.div`
   }
 `;
 
-const YWCA = () => {
+const YWCA = ({data}) => {
 
   return (
     <>
@@ -128,11 +135,7 @@ const YWCA = () => {
         title={`Projects | YWCA of Greater Lafayette`} />
       <HeroContainer>
           <HeroSegement>
-              <img 
-              src={featuredImgFluid} 
-              alt="YWCA of Greater Lafayette Mockup" 
-              style={{ 
-                boxShadow: '0px 4px 10px 0 #dedede'}}/>
+          <Img fluid={data.featuredImgFluid.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt="YWCA of Greater Lafayette homepage" />
             </HeroSegement>
 
             <HeroSegement> 
@@ -154,7 +157,7 @@ const YWCA = () => {
                   Adobe Illustrator
                 </Paragraph>
               </RoleTable>
-              <CallToAction><a href="https://issuu.com/ndwenge/docs/gallery-branding-guide" style={{color: '#212529'}}>repository</a></CallToAction>
+              <CallToAction><a href="https://issuu.com/ndwenge/docs/gallery-branding-guide" style={{color: '#212529'}}>live document</a></CallToAction>
             </HeroSegement>
         </HeroContainer>
        
@@ -178,10 +181,7 @@ const YWCA = () => {
       </Layout>
 
       <ImageContainer>
-        <img src={homePage} 
-          alt="YWCA of Greater Lafayette cover"
-          style={{ 
-            boxShadow: '0px 4px 10px 0 #dedede'}} />
+      <Img fluid={data.homePage.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt="YWCA of Greater Lafayette branding guide cover" />
       </ImageContainer>
 
         <Layout>
@@ -204,31 +204,22 @@ const YWCA = () => {
 
     
       <ImageContainer>
-        <img src={otherPage} 
-            alt="YWCA of Greater Lafayette more pages"
-            style={{ 
-              boxShadow: '0px 4px 10px 0 #dedede'}} />
+      <Img fluid={data.otherPage.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt="YWCA of Greater Lafayette other branding pages" />
       </ImageContainer>
 
       <Layout>
-        <WorkSubHeading style={{marginTop: '5%', marginBottom: '50px'}}>More Projects</WorkSubHeading>
+        <WorkSubHeading style={{marginTop: '18%', marginBottom: '50px'}}>More Projects</WorkSubHeading>
 
         <ProjectContainer>
           <ButtonContainer>
             <Button to="/TeslaPitch">
-            <img src={prevProject} 
-                  alt="Tesla pitch pages"
-                  style={{ 
-                    boxShadow: '0px 4px 10px 0 #dedede'}} />
+            <Img fluid={data.otherPage.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt="Tesla pitch strategy first pages" />
             </Button>
             </ButtonContainer>
 
             <ButtonContainer>
             <Button to="/HankDevelopment">
-            <img src={nextProject} 
-                  alt="Hank Development mockup"
-                  style={{ 
-                    boxShadow: '0px 4px 10px 0 #dedede'}} />
+            <Img fluid={data.nextProject.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt="HANK Development homepage" />
             </Button>
             </ButtonContainer>
         </ProjectContainer>
@@ -239,3 +230,51 @@ const YWCA = () => {
 }
 
 export default YWCA
+
+export const query = graphql`
+  query {
+    featuredImgFluid: file(relativePath: { eq: "mockups/ywca_mockup.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 792, maxHeight: 594) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+
+    homePage: file(relativePath: { eq: "full-page/full-mockup/ywca-front.jpg" }) {
+      ...fullPageImages
+    }
+
+    otherPage: file(relativePath: { eq: "full-page/full-mockup/ywca-other.jpg" }) {
+      ...fullPageImages
+    }
+
+    prevProject: file(relativePath: { eq: "mockups/tesla_mockup.jpg" }) {
+      ...otherProjects
+    }
+
+    nextProject: file(relativePath: { eq: "mockups/hank-development-mockup.jpg" }) {
+      ...otherProjects
+    }
+  }
+`
+
+export const fullPageImages = graphql`
+  fragment fullPageImages on File {
+    childImageSharp {
+      fluid(maxWidth: 1008, maxHeight: 748) {
+        ...GatsbyImageSharpFluid
+      }
+    }
+  }
+`
+
+export const otherProjects = graphql`
+  fragment otherProjects on File {
+    childImageSharp {
+      fluid(maxWidth: 542, maxHeight: 410) {
+        ...GatsbyImageSharpFluid
+      }
+    }
+  }
+`

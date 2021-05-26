@@ -106,50 +106,53 @@ const Container = styled.div`
 const Resume = () => (
     <div id="resume" style={{marginTop: '10%'}}>
         <SubHeading>Resume</SubHeading>
-        <CallToAction><a href={`Dwenger-Nicole-FED-Resume.pdf`} download>Download PDF</a></CallToAction>
+        <CallToAction><a href={`Nicole_Dwenger_Resume.pdf`} download>Download PDF</a></CallToAction>
         <ResumeContainer>
         <Container>
         
         <ResumeHeader>Experience</ResumeHeader>
         <ResumeWrapper>
-        <ResumeYear>Aug 2020 - Present</ResumeYear>
+        <ResumeYear>Aug 2020 - May 2021</ResumeYear>
         <ResumeText><strong>Lead Market Research Analyst</strong><br />Boiler Communication</ResumeText>
             <ResumeSubText>West Lafayette, IN <br /> 
-            Led a team of market researchers to provide impactful and insightful audience analysis across seven campaign teams</ResumeSubText>
+            Led a team of three analysts to achieve yearly strategic goals in client communication. Analysed and researched audiences across 21 campaigns and ensured tactices are strategically targeting consumers.</ResumeSubText>
 
-        <ResumeYear>Aug 2019 - Present</ResumeYear>
+        <ResumeYear>Nov 2019 - May 2021</ResumeYear>
         <ResumeText><strong>Undergraduate Researcher</strong><br />Purdue Polytechnic Institute</ResumeText>
             <ResumeSubText>West Lafayette, IN <br /> 
-            Developed and maintained a website with Gatsby.JS for students to use in a data visualization course in upcoming semesters</ResumeSubText>
+            Reduced student effort by researching and transforming 21 physical worksheets into a user-friendly digital format. Developed and maintained a website with Gatsby.js for student and professor use in a data visualization course.</ResumeSubText>
 
         <ResumeYear>June 2020 - Aug 2020</ResumeYear>
         <ResumeText><strong>Social Center of Expertise Intern</strong> <br />General Motors</ResumeText>
-        <ResumeSubText>Detroit, MI <br /> Benchmarked and researched social care strategies across the automotive industry and other markets for customer satisfaction improvements</ResumeSubText>
+        <ResumeSubText>Detroit, MI <br /> Benchmarked and researched social care strategies across the automotive industry and other markets. Analyzed customer sentiments through customer satisfaction scores to determine common trends for improvement.</ResumeSubText>
 
-        <ResumeYear>Aug 2019 - June 2020</ResumeYear>
-        
-            <ResumeText><strong>Web Team Intern</strong><br />Purdue Agricultural Communication</ResumeText>
-            <ResumeSubText>West Lafayette, IN <br /> 
-            Maintained 500+ WordPress and Sharepoint pages while designing effective mockups to meet client needs</ResumeSubText>
-        
-
-        <ResumeYear>Aug 2019 - May 2020</ResumeYear>
+        <ResumeYear>Nov 2019 - May 2020</ResumeYear>
 
             <ResumeText><strong>Front End Developer</strong><br/>CDW</ResumeText>
             <ResumeSubText>Vernon Hills, IL <br /> 
-            Developed atomic components and conducted unit code testing for front end Adobe Experience Manager codebase</ResumeSubText>
+            Developed atomic components in an agile environment to be integrated into Adobe Experience Manager. Increased code coverage by 60% on front end development repositories utilizing Mocha and Chai. Implemented changes to repositories leveraging Git and Gulp commands for ease of documentation</ResumeSubText>
 
-        <ResumeYear>Jun 2019 - Aug 2019</ResumeYear>
+            <ResumeYear>Jun 2019 - Aug 2019</ResumeYear>
 
-            <ResumeText><strong>Front End Developer Intern</strong><br/>CDW</ResumeText>
-            <ResumeSubText>Vernon Hills, IL<br /> 
-            Wrote standards-compliant code while working with internal development teams to integrate with back-end technology</ResumeSubText>
+<ResumeText><strong>Front End Developer Intern</strong><br/>CDW</ResumeText>
+<ResumeSubText>Vernon Hills, IL<br /> 
+Wrote standards-compliant code while testing and debugging for multiple browsers. Collaborated with internal development and design teams to ensure effective user flow of an internal engineers’ blog while leading prototype production with 16 interns. Designed a working prototype in Adobe Experience Manager to present a proof of concept to upper management. </ResumeSubText>
+        
+        <ResumeYear>Aug 2019 - May 2020</ResumeYear>
+        
+            <ResumeText><strong>Web Team Intern</strong><br />Purdue Agricultural Communication</ResumeText>
+            <ResumeSubText>West Lafayette, IN <br /> 
+            Created wireframes and demonstrated user flows to satisfy client requirements while maintaining 120+ sites. Designed creative mockups and met with clients to propose design direction, usability, and coding requirements. Researched keywords and met with content writers to prioritize search engine optimization across all sites.</ResumeSubText>
 
-
-        <ResumeYear>Aug 2019 - Dec 2018</ResumeYear>
+        <ResumeYear>Aug 2018 - Dec 2018</ResumeYear>
             <ResumeText><strong>Photography Editor</strong><br/>The Purdue Exponent</ResumeText>
             <ResumeSubText>West Lafayette, IN <br /> 
-            Managed a team of photographers and submitted images within deadlines to supplement articles</ResumeSubText>
+            Managed a team of photographers and submitted images within deadlines to supplement articles.</ResumeSubText>
+
+            <ResumeYear>May 2018 - Aug 2018</ResumeYear>
+            <ResumeText><strong>Summer Intern</strong><br/>Siemens Energy, Inc.</ResumeText>
+            <ResumeSubText>Indianapolis, IN <br /> 
+            Maintained critical schedule for data migration project operating Siemens TeamCenter and Excel. Developed presentation template adhering to Siemens business & color graphics requirements.</ResumeSubText>
 
         </ResumeWrapper>
         </Container>
@@ -158,43 +161,57 @@ const Resume = () => (
         <ResumeHeader>Education</ResumeHeader>
         <ResumeWrapper>
         <ResumeYear>2017 - 2021</ResumeYear>
-            <ResumeText>Purdue University / <strong>Bachelor of Science</strong></ResumeText>
-            <ResumeSubText>West Lafayette, IN <br /> Computer Graphics Technology</ResumeSubText>
+            <ResumeText>Purdue University / <strong>Bachelor of Science</strong>, <i>cum laude</i></ResumeText>
+            <ResumeSubText>West Lafayette, IN <br /> Computer Graphics Technology <br/>Major: Web Programming and Design</ResumeSubText>
 
             <ResumeText>Purdue University / <strong>Bachelor of Arts</strong></ResumeText>
-            <ResumeSubText>West Lafayette, IN <br /> Communication</ResumeSubText>
-            <Paragraph>Overall GPA / <strong>3.85</strong></Paragraph>
+            <ResumeSubText>West Lafayette, IN <br /> Communication <br/>Major: Public Relations and Strategic Communication</ResumeSubText>
+            <Paragraph>Overall GPA / <strong>3.87</strong></Paragraph>
         </ResumeWrapper>
 
         <ResumeHeader>Involvement</ResumeHeader>
         <ResumeWrapper>
-        <ResumeYear>Aug 2019 - Present</ResumeYear>
+        <ResumeYear>Mar 2021 - May 2021</ResumeYear>
+        
+        <ResumeText><strong>Lamb School Co-curricular Engagement Undergraduate Assistant</strong></ResumeText>
+        <ResumeSubText>
+       Updated and monitored 30+ Sqaurespace pages to market current internship and co-curricular opportunities. Created, maintained, and posted graphics for social media accounts.</ResumeSubText>
+        <ResumeYear>Aug 2019 - May 2021</ResumeYear>
         
             <ResumeText><strong>Public Relations Student Society of America</strong></ResumeText>
             <ResumeSubText>Director of Internal Communication <br/>
-            Designed, developed, and maintained a website to house resources and monthly modules for members</ResumeSubText>
+            Designed, developed, and maintained a website to house resources and monthly modules for members.</ResumeSubText>
         </ResumeWrapper>
 
         <ResumeHeader>Honors and Awards</ResumeHeader>
         <ResumeWrapper>
+
+        <ResumeYear>May 2021</ResumeYear>
+    
+    <ResumeText><strong>Academic Unit Award - Third</strong></ResumeText>
+    <ResumeSubText>Purdue Office of Undergraduate Research<br/>Award given based on a poster submission within the Purdue Polytechnic Institute for my research titled Digital Portal for the Data Visualization Process.</ResumeSubText>
+
+        <ResumeYear>Apr 2021</ResumeYear>
+    
+    <ResumeText><strong>Persistent Pursuit Award</strong></ResumeText>
+    <ResumeSubText>Lamb School Co-curricular Engagement <br/>Award given to a senior that has put in the work, day in and day out, to drive the next innovation for the Lamb School.<br/>  <a href="https://www.lambschoolcocurricularengagement.com/senior-night">Read more about the award</a></ResumeSubText>
+
+    <ResumeYear>Aug 2020 - May 2021</ResumeYear>
+    
+            <ResumeText><strong>Purdue OUR Scholars</strong></ResumeText>
+            <ResumeSubText>Purdue Polytechnic Institute <br/>Scholarship given to dedicated individuals to Purdue research. Required to maintain a certain GPA and enroll in research courses.</ResumeSubText>
+
         <ResumeYear>Nov 2020</ResumeYear>
     
         <ResumeText><strong>Mortar Board Design Winner</strong></ResumeText>
-        <ResumeSubText>Purdue Mortar Board</ResumeSubText>
-
-        <ResumeYear>Aug 2020</ResumeYear>
-    
-            <ResumeText><strong>Purdue OUR Scholars</strong></ResumeText>
-            <ResumeSubText>Purdue Polytechnic Institute </ResumeSubText>
+        <ResumeSubText>Purdue Mortar Board<br/>Award given based on a graphic design for the 2021-2022 Purdue mortar board.</ResumeSubText>
+        
 
         <ResumeYear>May 2020</ResumeYear>
     
             <ResumeText><strong>Purdue Polytechnic Institute Undergraduate Research Poster Winner</strong></ResumeText>
-            <ResumeSubText>Purdue Polytechnic Institute </ResumeSubText>
+            <ResumeSubText>Purdue Polytechnic Institute <br/>Award given based on undergraduate research poster submission within each college at Purdue.</ResumeSubText>
 
-        <ResumeYear>Aug 2017 - Present</ResumeYear>
-            <ResumeText><strong>College Dean's List</strong></ResumeText>
-            <ResumeSubText>Purdue Polytechnic Institute </ResumeSubText>
         </ResumeWrapper>
         </Container>
         </ResumeContainer>
@@ -244,6 +261,17 @@ const Resume = () => (
                 </Paragraph>
                 <Paragraph>
                     <FontAwesomeIcon icon={faCircle}></FontAwesomeIcon> Indesign
+                </Paragraph>
+            </div>
+            <div>
+                <Paragraph>
+                    <FontAwesomeIcon icon={faCircle}></FontAwesomeIcon> Microsoft Code
+                </Paragraph>
+                <Paragraph>
+                    <FontAwesomeIcon icon={faCircle}></FontAwesomeIcon> Microsoft Visual Studio
+                </Paragraph>
+                <Paragraph>
+                    <FontAwesomeIcon icon={faCircle}></FontAwesomeIcon> Github
                 </Paragraph>
             </div>
         </LanguageTable>

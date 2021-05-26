@@ -1,4 +1,7 @@
 import React from "react"
+import { graphql } from 'gatsby'
+import Img from 'gatsby-image'
+
 import Layout from "../components/layout"
 import Heading from '../components/text/Heading'
 import styled from "styled-components"
@@ -7,17 +10,12 @@ import Paragraph from '../components/text/Paragraph'
 import CallToAction from "../components/text/CallToAction"
 import WorkSubHeading from '../components/text/WorkSubHeading'
 import SEO from "../components/seo"
-import featuredImgFluid from '../images/mockups/prssa_desktop_mockup.jpg'
-import homePage from '../images/full-page/full-mockup/prssa-full.png'
-import otherPage from '../images/full-page/full-mockup/prssa-collage.jpg'
-import prevProject from '../images/mockups/car_compare_desktop_mockup.jpg'
-import nextProject from '../images/mockups/hank-development-mockup.jpg'
 import Button from '../components/UI/Button'
 import RoleTable from '../components/UI/RoleTable'
 
 const ProjectContainer = styled.div`
     width: 100%;
-    margin-top: 20px;
+    margin-top: 80px;
     display: flex;
     flex-wrap: wrap;
     align-items: flex-end;
@@ -87,15 +85,24 @@ const Container = styled.div`
 const ImageContainer = styled.div`
   align-items: center;
   width: 100vw;
-  margin: 0 auto;
   text-align: center;
 
-  > img {
-    margin-bottom: 80px;
+  > .gatsby-image-wrapper {
     width: 70%;
+    margin: 0 auto;
 
     @media (max-width: ${breakpoints.mobileMax}) {
       width: 100%;
+    }
+  }
+
+  ${Paragraph} {
+    width: 60%;
+    margin: 0 auto;
+    padding-bottom: 20px;
+
+    @media (max-width: ${breakpoints.mobileMax}) {
+      width: 85%;
     }
   }
 `;
@@ -120,7 +127,7 @@ const ButtonContainer = styled.div`
   }
 `;
 
-const CoCurricular = () => {
+const CoCurricular = ({data}) => {
 
   return (
     <>
@@ -128,11 +135,7 @@ const CoCurricular = () => {
         title={`Projects | Co-Curricular Engagement`} />
       <HeroContainer>
           <HeroSegement>
-              <img 
-              src={featuredImgFluid} 
-              alt="PRSSA mockup" 
-              style={{ 
-                boxShadow: '0px 4px 10px 0 #dedede'}}/>
+          <Img fluid={data.featuredImgFluid.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt="PRSSA mockup" />
             </HeroSegement>
 
             <HeroSegement> 
@@ -178,10 +181,7 @@ const CoCurricular = () => {
       </Layout>
 
       <ImageContainer>
-        <img src={homePage} 
-          alt="PRSSA Home Page"
-          style={{ 
-            boxShadow: '0px 4px 10px 0 #dedede'}} />
+      <Img fluid={data.homePage.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt="PRSSA home page" />
       </ImageContainer>
 
         <Layout>
@@ -204,31 +204,22 @@ const CoCurricular = () => {
 
     
       <ImageContainer>
-        <img src={otherPage} 
-            alt="PRSSA other pages"
-            style={{ 
-              boxShadow: '0px 4px 10px 0 #dedede'}} />
+      <Img fluid={data.otherPage.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt="PRSSA pages mockups" />
       </ImageContainer>
 
       <Layout>
-        <WorkSubHeading style={{marginTop: '5%', marginBottom: '50px'}}>More Projects</WorkSubHeading>
+        <WorkSubHeading style={{marginTop: '18%', marginBottom: '50px'}}>More Projects</WorkSubHeading>
 
         <ProjectContainer>
           <ButtonContainer>
             <Button to="/CarCompare">
-            <img src={prevProject} 
-                  alt="Car Compare mockup"
-                  style={{ 
-                    boxShadow: '0px 4px 10px 0 #dedede'}} />
+            <Img fluid={data.prevProject.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt="Car compare mockup" />
             </Button>
             </ButtonContainer>
 
             <ButtonContainer>
             <Button to="/HankDevelopment">
-            <img src={nextProject} 
-                  alt="HANK Development mockup"
-                  style={{ 
-                    boxShadow: '0px 4px 10px 0 #dedede'}} />
+            <Img fluid={data.nextProject.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt="HANK devleopment mockup" />
             </Button>
             </ButtonContainer>
         </ProjectContainer>
@@ -239,3 +230,51 @@ const CoCurricular = () => {
 }
 
 export default CoCurricular
+
+export const query = graphql`
+  query {
+    featuredImgFluid: file(relativePath: { eq: "mockups/prssa_desktop_mockup.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 792, maxHeight: 594) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+
+    homePage: file(relativePath: { eq: "full-page/full-mockup/prssa-full.png" }) {
+      ...fullPageImages
+    }
+
+    otherPage: file(relativePath: { eq: "full-page/full-mockup/prssa-collage.jpg" }) {
+      ...fullPageImages
+    }
+
+    prevProject: file(relativePath: { eq: "mockups/car_compare_desktop_mockup.jpg" }) {
+      ...otherProjects
+    }
+
+    nextProject: file(relativePath: { eq: "mockups/hank-development-mockup.jpg" }) {
+      ...otherProjects
+    }
+  }
+`
+
+export const fullPageImages = graphql`
+  fragment fullPageImages on File {
+    childImageSharp {
+      fluid(maxWidth: 1008, maxHeight: 748) {
+        ...GatsbyImageSharpFluid
+      }
+    }
+  }
+`
+
+export const otherProjects = graphql`
+  fragment otherProjects on File {
+    childImageSharp {
+      fluid(maxWidth: 542, maxHeight: 410) {
+        ...GatsbyImageSharpFluid
+      }
+    }
+  }
+`
