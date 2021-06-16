@@ -254,7 +254,7 @@ export const query = graphql`
       ...fullPageImages
     }
 
-    homePage: file(relativePath: { eq: "full-page/hank-home.jpg" }) {
+    homePage: file(relativePath: { eq: "full-page/full-mockup/hank-home.jpg" }) {
       ...fullPageImages
     }
 

@@ -395,7 +395,7 @@ const WazeParking = ({ data }) => {
 
         <ProjectContainer>
           <ButtonContainer>
-            <Button to="/YWCAGallery">
+            <Button to="/CraigslistRedesign">
               <Img
                 fluid={data.prevProject.childImageSharp.fluid}
                 style={{ boxShadow: "0px 4px 10px 0 #dedede" }}
@@ -405,7 +405,7 @@ const WazeParking = ({ data }) => {
           </ButtonContainer>
 
           <ButtonContainer>
-            <Button to="/CarCompare">
+            <Button to="/HankDevelopment">
               <Img
                 fluid={data.nextProject.childImageSharp.fluid}
                 style={{ boxShadow: "0px 4px 10px 0 #dedede" }}
@@ -455,12 +455,12 @@ export const query = graphql`
       ...fullPageImages
     }
 
-    prevProject: file(relativePath: { eq: "mockups/ywca_mockup.jpg" }) {
+    prevProject: file(relativePath: { eq: "mockups/craigslist_mockup.jpg" }) {
       ...otherProjects
     }
 
     nextProject: file(
-      relativePath: { eq: "mockups/car_compare_desktop_mockup.jpg" }
+      relativePath: { eq: "mockups/hank-development-mockup.jpg" }
     ) {
       ...otherProjects
     }

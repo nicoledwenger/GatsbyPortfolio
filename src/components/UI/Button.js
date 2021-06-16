@@ -42,6 +42,9 @@ const PreviousButton =  styled(Link)`
             transition-duration: 0.3s;
             filter: grayscale(0%);
             opacity: 1;
+            img {
+                filter: grayscale(0%);
+              }
         }
 
         ${Paragraph} {

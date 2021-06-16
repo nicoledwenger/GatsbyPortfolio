@@ -240,7 +240,7 @@ export const query = graphql`
       }
     }
 
-    homePage: file(relativePath: { eq: "full-page/BBBS-home.jpg" }) {
+    homePage: file(relativePath: { eq: "full-page/full-mockup/BBBS-home.jpg" }) {
       ...fullPageImages
     }
 

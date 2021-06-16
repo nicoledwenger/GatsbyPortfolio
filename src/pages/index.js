@@ -242,6 +242,86 @@ const IndexPage = ({ data }) => {
           </WorkLink>
         </ProjectContainer>
 
+        {/* Tweed Mag */}
+        <ProjectContainer>
+          <WorkLink to="/TweedMagazine">
+            <Container>
+              <Img
+                fluid={data.tweedMag.childImageSharp.fluid}
+                alt="Tweed Magazine concept cover and spread"
+              />
+              <ProjectSegment>
+                <Segment>
+                  <WorkTitle>Tweed Magazine - Publication Design</WorkTitle>
+                </Segment>
+                <Segment>
+                  <DescriptionText>Course Project - 2021</DescriptionText>
+                </Segment>
+              </ProjectSegment>
+            </Container>
+          </WorkLink>
+        </ProjectContainer>
+
+        {/* Craigslist Redesign */}
+        <ProjectContainer>
+          <WorkLink to="/CraigslistRedesign">
+            <Container>
+              <Img
+                fluid={data.craigslistRedesign.childImageSharp.fluid}
+                alt="Craigslist Redesign mockup"
+              />
+              <ProjectSegment>
+                <Segment>
+                  <WorkTitle>Craigslist Redesign - UX Design</WorkTitle>
+                </Segment>
+                <Segment>
+                  <DescriptionText>Course Project - 2021</DescriptionText>
+                </Segment>
+              </ProjectSegment>
+            </Container>
+          </WorkLink>
+        </ProjectContainer>
+
+        {/* Needs Assessment */}
+        <ProjectContainer>
+          <WorkLink to="/NeedsAssessment">
+            <Container>
+              <Img
+                fluid={data.needsAssessment.childImageSharp.fluid}
+                alt="Audience guide example"
+              />
+              <ProjectSegment>
+                <Segment>
+                  <WorkTitle>Needs Assessment - Writing</WorkTitle>
+                </Segment>
+                <Segment>
+                  <DescriptionText>Boiler Communication - 2021</DescriptionText>
+                </Segment>
+              </ProjectSegment>
+            </Container>
+          </WorkLink>
+        </ProjectContainer>
+
+        {/* Audience Guides */}
+        <ProjectContainer>
+          <WorkLink to="/AudienceGuide">
+            <Container>
+              <Img
+                fluid={data.audienceGuide.childImageSharp.fluid}
+                alt="Audience guide example"
+              />
+              <ProjectSegment>
+                <Segment>
+                  <WorkTitle>PRSSA Audience Guides - Writing</WorkTitle>
+                </Segment>
+                <Segment>
+                  <DescriptionText>Boiler Communication - 2021</DescriptionText>
+                </Segment>
+              </ProjectSegment>
+            </Container>
+          </WorkLink>
+        </ProjectContainer>
+
         {/* Car Compare */}
         <ProjectContainer>
           <WorkLink to="/CarCompare">
@@ -496,6 +576,22 @@ export const query = graphql`
     }
 
     wazeParking: file(relativePath: { eq: "mockups/waze_mockup.jpg" }) {
+      ...projectPreview
+    }
+
+    tweedMag: file(relativePath: { eq: "mockups/tweed_mockup.jpg" }) {
+      ...projectPreview
+    }
+
+    craigslistRedesign: file(relativePath: { eq: "mockups/craigslist_mockup.jpg" }) {
+      ...projectPreview
+    }
+
+    audienceGuide: file(relativePath: { eq: "mockups/audience_guide_mockup.jpg" }) {
+      ...projectPreview
+    }
+
+    needsAssessment: file(relativePath: { eq: "mockups/needs_assessment_mockup.jpg" }) {
       ...projectPreview
     }
   }

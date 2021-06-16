@@ -243,7 +243,7 @@ export const query = graphql`
       }
     }
 
-    homePage: file(relativePath: { eq: "full-page/purdue-agriculture-home.jpg" }) {
+    homePage: file(relativePath: { eq: "full-page/full-mockup/purdue-agriculture-home.jpg" }) {
       ...fullPageImages
     }
 
