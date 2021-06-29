@@ -140,7 +140,7 @@ const YWCA = ({data}) => {
 
             <HeroSegement> 
               <Heading style={{marginTop: '0'}}>YWCA of Greater Lafayette</Heading>
-              <Paragraph>Course Project - 2020</Paragraph>
+              <Paragraph>Design - 2020</Paragraph>
               <RoleTable>
                 <Paragraph>
                   <strong>Role</strong>

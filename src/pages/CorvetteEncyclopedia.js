@@ -140,7 +140,7 @@ const CorvetteEncyclopedia = ({data}) => {
 
             <HeroSegement> 
               <Heading style={{marginTop: '0'}}>Chevrolet Corvette Encyclopedia</Heading>
-              <Paragraph>Course Project - 2019</Paragraph>
+              <Paragraph>Web Development - 2019</Paragraph>
               <RoleTable>
                 <Paragraph>
                   <strong>Role</strong>

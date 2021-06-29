@@ -142,16 +142,16 @@ const WazeParking = ({ data }) => {
 
         <HeroSegement>
           <Heading style={{ marginTop: "0" }}>
-            Parking for Waze - UX Design
+            Parking for Waze
           </Heading>
-          <Paragraph>Course Project - 2021</Paragraph>
+          <Paragraph>UX/UI Design - 2021</Paragraph>
           <RoleTable>
             <Paragraph>
               <strong>Responsibilities</strong>
               <br />
               User Scenario Mapping
               <br />
-              Interviewing/Testing
+              User Interviewing/Testing
               <br />
               Prototyping
             </Paragraph>

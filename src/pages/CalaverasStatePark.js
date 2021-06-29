@@ -140,7 +140,7 @@ const CalaverasStatePark = ({data}) => {
 
             <HeroSegement> 
               <Heading style={{marginTop: '0'}}>Calaveras State Park</Heading>
-              <Paragraph>Course Project - 2019</Paragraph>
+              <Paragraph>Web Development - 2019</Paragraph>
               <RoleTable>
                 <Paragraph>
                   <strong>Role</strong>

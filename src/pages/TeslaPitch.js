@@ -140,7 +140,7 @@ const TeslaPitch = ({data}) => {
 
             <HeroSegement> 
               <Heading style={{marginTop: '0'}}>Tesla Pitch Strategy</Heading>
-              <Paragraph>Course Project - 2020</Paragraph>
+              <Paragraph>Writing - 2020</Paragraph>
               <RoleTable>
                 <Paragraph>
                   <strong>Role</strong>

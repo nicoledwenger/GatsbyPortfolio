@@ -221,52 +221,61 @@ Wrote standards-compliant code while testing and debugging for multiple browsers
         <LanguageTable>
             <div>
                 <Paragraph>
-                    <FontAwesomeIcon icon={faCircle}></FontAwesomeIcon> HTML5
+                    <FontAwesomeIcon icon={faCircle}></FontAwesomeIcon> HTML
                 </Paragraph>
                 <Paragraph>
-                    <FontAwesomeIcon icon={faCircle}></FontAwesomeIcon> CSS3
+                    <FontAwesomeIcon icon={faCircle}></FontAwesomeIcon> CSS
                 </Paragraph>
                 <Paragraph>
                     <FontAwesomeIcon icon={faCircle}></FontAwesomeIcon> Javascript / jQuery
                 </Paragraph>
-            </div>
-            <div>
                 <Paragraph>
                     <FontAwesomeIcon icon={faCircle}></FontAwesomeIcon> Bootstrap
                 </Paragraph>
+            </div>
+            <div>
                 <Paragraph>
                     <FontAwesomeIcon icon={faCircle}></FontAwesomeIcon> React.js
                 </Paragraph>
                 <Paragraph>
                     <FontAwesomeIcon icon={faCircle}></FontAwesomeIcon> SASS
                 </Paragraph>
-            </div>
-            <div>
                 <Paragraph>
                     <FontAwesomeIcon icon={faCircle}></FontAwesomeIcon> PHP
                 </Paragraph>
                 <Paragraph>
                     <FontAwesomeIcon icon={faCircle}></FontAwesomeIcon> SQL
                 </Paragraph>
+            </div>
+            <div>
                 <Paragraph>
                     <FontAwesomeIcon icon={faCircle}></FontAwesomeIcon> Wordpress
                 </Paragraph>
-            </div>
-            <div>
                 <Paragraph>
-                    <FontAwesomeIcon icon={faCircle}></FontAwesomeIcon> Photoshop
+                    <FontAwesomeIcon icon={faCircle}></FontAwesomeIcon> Adobe Photoshop
                 </Paragraph>
                 <Paragraph>
-                    <FontAwesomeIcon icon={faCircle}></FontAwesomeIcon> Illustrator
+                    <FontAwesomeIcon icon={faCircle}></FontAwesomeIcon> Adobe Illustrator
                 </Paragraph>
                 <Paragraph>
-                    <FontAwesomeIcon icon={faCircle}></FontAwesomeIcon> Indesign
+                    <FontAwesomeIcon icon={faCircle}></FontAwesomeIcon> Adobe InDesign
                 </Paragraph>
             </div>
             <div>
+                <Paragraph>
+                    <FontAwesomeIcon icon={faCircle}></FontAwesomeIcon> Adobe XD
+                </Paragraph>
+                <Paragraph>
+                    <FontAwesomeIcon icon={faCircle}></FontAwesomeIcon> Figma
+                </Paragraph>
+                <Paragraph>
+                    <FontAwesomeIcon icon={faCircle}></FontAwesomeIcon> Miro
+                </Paragraph>
                 <Paragraph>
                     <FontAwesomeIcon icon={faCircle}></FontAwesomeIcon> Microsoft Code
                 </Paragraph>
+            </div>
+            <div>
                 <Paragraph>
                     <FontAwesomeIcon icon={faCircle}></FontAwesomeIcon> Microsoft Visual Studio
                 </Paragraph>

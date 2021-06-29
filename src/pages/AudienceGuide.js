@@ -82,31 +82,6 @@ const Container = styled.div`
 }
 `;
 
-const ImageContainer = styled.div`
-  align-items: center;
-  width: 100vw;
-  text-align: center;
-
-  > .gatsby-image-wrapper {
-    width: 70%;
-    margin: 0 auto;
-
-    @media (max-width: ${breakpoints.mobileMax}) {
-      width: 100%;
-    }
-  }
-
-  ${Paragraph} {
-    width: 60%;
-    margin: 0 auto;
-    padding-bottom: 20px;
-
-    @media (max-width: ${breakpoints.mobileMax}) {
-      width: 85%;
-    }
-  }
-`;
-
 const ButtonContainer = styled.div`
   width: 48%;
   margin-bottom: 80px;
@@ -139,17 +114,17 @@ const AudienceGuide = ({data}) => {
             </HeroSegement>
 
             <HeroSegement> 
-              <Heading style={{marginTop: '0'}}>PRSSA Audience Guide</Heading>
-              <Paragraph>Boiler Communication - 2021</Paragraph>
+              <Heading style={{marginTop: '0'}}>Audience Guide</Heading>
+              <Paragraph>Writing - 2021</Paragraph>
               <RoleTable>
                 <Paragraph>
                   <strong>Role</strong>
                   <br/>
-                  Researcher
+                  Audience Analyst
                   <br/>
-                  Analyst
+                  Lead Researcher
                   <br/>
-                  Copy Writer
+                  Writer
                 </Paragraph>
                 <Paragraph>
                   <strong>Stack</strong>

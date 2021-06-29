@@ -214,7 +214,7 @@ const IndexPage = ({ data }) => {
               background in <span>strategic communication</span>
             </Heading>
             <SubHeading>
-              Currently seeking a full-time position as a web or UI developer in San Diego, California
+              Currently seeking a full-time position as a UX Designer in San Diego, California
             </SubHeading>
             <Arrow />
           </AppearBox>
@@ -232,10 +232,10 @@ const IndexPage = ({ data }) => {
               />
               <ProjectSegment>
                 <Segment>
-                  <WorkTitle>Parking for Waze - UX Design</WorkTitle>
+                  <WorkTitle>Parking for Waze</WorkTitle>
                 </Segment>
                 <Segment>
-                  <DescriptionText>Course Project - 2021</DescriptionText>
+                  <DescriptionText>UX/UI Design - 2021</DescriptionText>
                 </Segment>
               </ProjectSegment>
             </Container>
@@ -252,10 +252,10 @@ const IndexPage = ({ data }) => {
               />
               <ProjectSegment>
                 <Segment>
-                  <WorkTitle>Tweed Magazine - Publication Design</WorkTitle>
+                  <WorkTitle>Tweed Mag</WorkTitle>
                 </Segment>
                 <Segment>
-                  <DescriptionText>Course Project - 2021</DescriptionText>
+                  <DescriptionText>Publication Design - 2021</DescriptionText>
                 </Segment>
               </ProjectSegment>
             </Container>
@@ -272,10 +272,10 @@ const IndexPage = ({ data }) => {
               />
               <ProjectSegment>
                 <Segment>
-                  <WorkTitle>Craigslist Redesign - UX Design</WorkTitle>
+                  <WorkTitle>Craigslist Redesign</WorkTitle>
                 </Segment>
                 <Segment>
-                  <DescriptionText>Course Project - 2021</DescriptionText>
+                  <DescriptionText>UX/UI Design - 2021</DescriptionText>
                 </Segment>
               </ProjectSegment>
             </Container>
@@ -292,10 +292,10 @@ const IndexPage = ({ data }) => {
               />
               <ProjectSegment>
                 <Segment>
-                  <WorkTitle>Needs Assessment - Writing</WorkTitle>
+                  <WorkTitle>Lamb School Needs Assessment</WorkTitle>
                 </Segment>
                 <Segment>
-                  <DescriptionText>Boiler Communication - 2021</DescriptionText>
+                  <DescriptionText>Writing - 2021</DescriptionText>
                 </Segment>
               </ProjectSegment>
             </Container>
@@ -312,10 +312,10 @@ const IndexPage = ({ data }) => {
               />
               <ProjectSegment>
                 <Segment>
-                  <WorkTitle>PRSSA Audience Guides - Writing</WorkTitle>
+                  <WorkTitle>PRSSA Nationals Audience Guide</WorkTitle>
                 </Segment>
                 <Segment>
-                  <DescriptionText>Boiler Communication - 2021</DescriptionText>
+                  <DescriptionText>Writing - 2021</DescriptionText>
                 </Segment>
               </ProjectSegment>
             </Container>
@@ -335,7 +335,7 @@ const IndexPage = ({ data }) => {
                   <WorkTitle>Car Compare</WorkTitle>
                 </Segment>
                 <Segment>
-                  <DescriptionText>Personal Project - 2021</DescriptionText>
+                  <DescriptionText>Web Development - 2021</DescriptionText>
                 </Segment>
               </ProjectSegment>
             </Container>
@@ -356,7 +356,7 @@ const IndexPage = ({ data }) => {
                 </Segment>
                 <Segment>
                   <DescriptionText>
-                    Brian Lamb School of Communication - 2020
+                    Web Development - 2020
                   </DescriptionText>
                 </Segment>
               </ProjectSegment>
@@ -377,7 +377,7 @@ const IndexPage = ({ data }) => {
                   <WorkTitle>HANK Development</WorkTitle>
                 </Segment>
                 <Segment>
-                  <DescriptionText>Course Project - 2020</DescriptionText>
+                  <DescriptionText>Web Development - 2020</DescriptionText>
                 </Segment>
               </ProjectSegment>
             </Container>
@@ -397,7 +397,7 @@ const IndexPage = ({ data }) => {
                   <WorkTitle>Purdue Agriculture Media Outreach</WorkTitle>
                 </Segment>
                 <Segment>
-                  <DescriptionText>Purdue Agriculture - 2020</DescriptionText>
+                  <DescriptionText>Web Development - 2020</DescriptionText>
                 </Segment>
               </ProjectSegment>
             </Container>
@@ -417,7 +417,7 @@ const IndexPage = ({ data }) => {
                   <WorkTitle>BBBS of Greater Lafayette</WorkTitle>
                 </Segment>
                 <Segment>
-                  <DescriptionText>Course Project - 2020</DescriptionText>
+                  <DescriptionText>UI Design - 2020</DescriptionText>
                 </Segment>
               </ProjectSegment>
             </Container>
@@ -437,7 +437,7 @@ const IndexPage = ({ data }) => {
                   <WorkTitle>Calaveras State Park</WorkTitle>
                 </Segment>
                 <Segment>
-                  <DescriptionText>Course Project - 2019</DescriptionText>
+                  <DescriptionText>Web Development - 2019</DescriptionText>
                 </Segment>
               </ProjectSegment>
             </Container>
@@ -457,7 +457,7 @@ const IndexPage = ({ data }) => {
                   <WorkTitle>Chevrolet Corvette Encyclopedia</WorkTitle>
                 </Segment>
                 <Segment>
-                  <DescriptionText>Course Project - 2019</DescriptionText>
+                  <DescriptionText>Web Development - 2019</DescriptionText>
                 </Segment>
               </ProjectSegment>
             </Container>
@@ -477,7 +477,7 @@ const IndexPage = ({ data }) => {
                   <WorkTitle>Tesla Pitch Strategy</WorkTitle>
                 </Segment>
                 <Segment>
-                  <DescriptionText>Course Project - 2020</DescriptionText>
+                  <DescriptionText>Writing - 2020</DescriptionText>
                 </Segment>
               </ProjectSegment>
             </Container>
@@ -497,7 +497,7 @@ const IndexPage = ({ data }) => {
                   <WorkTitle>YWCA of Greater Lafayette</WorkTitle>
                 </Segment>
                 <Segment>
-                  <DescriptionText>Course Project - 2019</DescriptionText>
+                  <DescriptionText>Design - 2019</DescriptionText>
                 </Segment>
               </ProjectSegment>
             </Container>

@@ -141,7 +141,7 @@ const CarCompare = ({ data }) => {
 
         <HeroSegement>
           <Heading style={{ marginTop: "0" }}>Car Compare</Heading>
-          <Paragraph>Personal Project - 2021</Paragraph>
+          <Paragraph>Web Development - 2021</Paragraph>
           <RoleTable>
             <Paragraph>
               <strong>Role</strong>

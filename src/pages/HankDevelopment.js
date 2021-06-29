@@ -140,7 +140,7 @@ const HankDev = ({data}) => {
 
             <HeroSegement> 
               <Heading style={{marginTop: '0'}}>HANK Development</Heading>
-              <Paragraph>Course Project - 2020</Paragraph>
+              <Paragraph>Web Development - 2020</Paragraph>
               <RoleTable>
                 <Paragraph>
                   <strong>Role</strong>

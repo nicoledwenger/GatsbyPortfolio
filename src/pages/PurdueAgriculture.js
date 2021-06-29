@@ -140,7 +140,7 @@ const PurdueAgriculture = ({data}) => {
 
             <HeroSegement> 
               <Heading style={{marginTop: '0'}}>Purdue Agriculture Media Outreach</Heading>
-              <Paragraph>Purdue Agriculture - 2020</Paragraph>
+              <Paragraph>Web Development - 2020</Paragraph>
               <RoleTable>
                 <Paragraph>
                   <strong>Role</strong>

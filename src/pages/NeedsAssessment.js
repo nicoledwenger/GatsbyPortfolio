@@ -82,31 +82,6 @@ const Container = styled.div`
 }
 `;
 
-const ImageContainer = styled.div`
-  align-items: center;
-  width: 100vw;
-  text-align: center;
-
-  > .gatsby-image-wrapper {
-    width: 70%;
-    margin: 0 auto;
-
-    @media (max-width: ${breakpoints.mobileMax}) {
-      width: 100%;
-    }
-  }
-
-  ${Paragraph} {
-    width: 60%;
-    margin: 0 auto;
-    padding-bottom: 20px;
-
-    @media (max-width: ${breakpoints.mobileMax}) {
-      width: 85%;
-    }
-  }
-`;
-
 const ButtonContainer = styled.div`
   width: 48%;
   margin-bottom: 80px;
@@ -132,7 +107,7 @@ const NeedsAssessment = ({data}) => {
   return (
     <>
       <SEO 
-        title={`Projects | Needs Assessment`} />
+        title={`Projects | Lamb School Needs Assessment`} />
       <HeroContainer>
           <HeroSegement>
           <Img fluid={data.featuredImgFluid.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt="Needs Assessment mockup" />
@@ -140,7 +115,7 @@ const NeedsAssessment = ({data}) => {
 
             <HeroSegement> 
               <Heading style={{marginTop: '0'}}>Lamb School Outreach and Engagement Hub Needs Assessment</Heading>
-              <Paragraph>Boiler Communication - 2021</Paragraph>
+              <Paragraph>Writing - 2021</Paragraph>
               <RoleTable>
                 <Paragraph>
                   <strong>Role</strong>
@@ -149,7 +124,7 @@ const NeedsAssessment = ({data}) => {
                   <br/>
                   Co-writer
                   <br/>
-                  Interviewer
+                  Stakeholder Interviewer
                 </Paragraph>
                 <Paragraph>
                   <strong>Stack</strong>

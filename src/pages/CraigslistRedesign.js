@@ -130,7 +130,7 @@ const ButtonContainer = styled.div`
 const CraigslistRedesign = ({ data }) => {
   return (
     <>
-      <SEO title={`Projects | Parking for Waze`} />
+      <SEO title={`Projects | Craigslist Redesign`} />
       <HeroContainer>
         <HeroSegement>
           <Img
@@ -142,9 +142,9 @@ const CraigslistRedesign = ({ data }) => {
 
         <HeroSegement>
           <Heading style={{ marginTop: "0" }}>
-            Craigslist Redesign - UX Design
+            Craigslist Redesign
           </Heading>
-          <Paragraph>Course Project - 2021</Paragraph>
+          <Paragraph>UX/UI Design - 2021</Paragraph>
           <RoleTable>
             <Paragraph>
               <strong>Responsibilities</strong>
@@ -153,7 +153,7 @@ const CraigslistRedesign = ({ data }) => {
               <br />
               Mockups
               <br />
-              Interviewing/Testing
+              User Interviewing/Testing
             </Paragraph>
             <Paragraph>
               <strong>Stack</strong>

@@ -140,7 +140,7 @@ const CoCurricular = ({data}) => {
 
             <HeroSegement> 
               <Heading style={{marginTop: '0'}}>Co-Curricular Engagement</Heading>
-              <Paragraph>Brian Lamb School of Communication - 2020</Paragraph>
+              <Paragraph>Web Development - 2020</Paragraph>
               <RoleTable>
                 <Paragraph>
                   <strong>Role</strong>

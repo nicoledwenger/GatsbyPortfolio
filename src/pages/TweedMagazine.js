@@ -142,9 +142,9 @@ const TweedMagazine = ({ data }) => {
 
         <HeroSegement>
           <Heading style={{ marginTop: "0" }}>
-            Tweed Magazine - Publication Design
+            Tweed Mag
           </Heading>
-          <Paragraph>Course Project - 2021</Paragraph>
+          <Paragraph>Publication Design - 2021</Paragraph>
           <RoleTable>
             <Paragraph>
               <strong>Responsibilities</strong>
