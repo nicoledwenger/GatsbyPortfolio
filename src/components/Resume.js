@@ -112,10 +112,15 @@ const Resume = () => (
         
         <ResumeHeader>Experience</ResumeHeader>
         <ResumeWrapper>
+        <ResumeYear>Jun 2021 - Aug 2021</ResumeYear>
+        <ResumeText><strong>Data Implementation Intern</strong><br />enFocus, Inc.</ResumeText>
+            <ResumeSubText>South Bend, IN <br /> 
+            Researched and discovered design requirements for a CRM platform to be utilized by Citywide Classroom South Bend. Implemented and built a system with monday.com in two weeks. Created Zapier automations to maintain and update clients. Tested and trained key stakeholders on the new system.</ResumeSubText>
+
         <ResumeYear>Aug 2020 - May 2021</ResumeYear>
         <ResumeText><strong>Lead Market Research Analyst</strong><br />Boiler Communication</ResumeText>
             <ResumeSubText>West Lafayette, IN <br /> 
-            Led a team of three analysts to achieve yearly strategic goals in client communication. Analysed and researched audiences across 21 campaigns and ensured tactices are strategically targeting consumers.</ResumeSubText>
+            Led a team of three analysts to achieve yearly strategic goals in client communication. Analyzed and researched audiences across 21 campaigns and ensured tactics are strategically targeting consumers.</ResumeSubText>
 
         <ResumeYear>Nov 2019 - May 2021</ResumeYear>
         <ResumeText><strong>Undergraduate Researcher</strong><br />Purdue Polytechnic Institute</ResumeText>

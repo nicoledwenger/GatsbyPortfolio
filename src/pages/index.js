@@ -214,7 +214,7 @@ const IndexPage = ({ data }) => {
               background in <span>strategic communication</span>
             </Heading>
             <SubHeading>
-              Currently seeking a full-time position as a UX Designer in San Diego, California
+              Currently seeking a full-time position in San Diego, California
             </SubHeading>
             <Arrow />
           </AppearBox>
@@ -222,6 +222,7 @@ const IndexPage = ({ data }) => {
       </Layout>
 
       <WorkContainer style={{ marginTop: "10%" }}>
+
         {/* Parking for Waze */}
         <ProjectContainer>
           <WorkLink to="/WazeParking">
@@ -236,6 +237,27 @@ const IndexPage = ({ data }) => {
                 </Segment>
                 <Segment>
                   <DescriptionText>UX/UI Design - 2021</DescriptionText>
+                </Segment>
+              </ProjectSegment>
+            </Container>
+          </WorkLink>
+        </ProjectContainer>
+
+                {/* ACNH Name Generator */}
+                <ProjectContainer>
+          <WorkLink to="/ACNHGenerator">
+            <Container>
+              <Img
+                fluid={data.acnhGenerator.childImageSharp.fluid}
+                alt="Animal Crossing New Horizons name generator mockup"
+              />
+              <ProjectSegment>
+                <Segment>
+                  <WorkTitle>ACNH Island Name Generator
+                  </WorkTitle>
+                </Segment>
+                <Segment>
+                  <DescriptionText>Web Design/Dev - 2021</DescriptionText>
                 </Segment>
               </ProjectSegment>
             </Container>
@@ -592,6 +614,10 @@ export const query = graphql`
     }
 
     needsAssessment: file(relativePath: { eq: "mockups/needs_assessment_mockup.jpg" }) {
+      ...projectPreview
+    }
+
+    acnhGenerator: file(relativePath: { eq: "mockups/acnh_generator_mockup.jpg" }) {
       ...projectPreview
     }
   }
