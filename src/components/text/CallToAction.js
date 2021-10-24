@@ -1,16 +1,13 @@
 import styled from "styled-components/macro";
 import "typeface-lato"
 
-const CallToAction =  styled.h3`
+const CallToAction =  styled.a`
     font-family: "Lato";
     font-weight: 800;
     font-size: 1.3rem;
+    color: #212529;
 
-    > a {
-        color: #212529;
-    }
-
-    > a:hover {
+    :hover {
         cursor: pointer;
         text-decoration: none;
         transition: 0.3s ease;

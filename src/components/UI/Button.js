@@ -4,7 +4,7 @@ import { Link } from 'gatsby'
 import Paragraph from '../text/Paragraph'
 import { breakpoints } from '../Breakpoints'
 
-const PreviousButton =  styled(Link)`
+const Button =  styled(Link)`
     > ${Paragraph}{
         font-family: balboa, sans-serif;
         font-weight: 400;
@@ -62,4 +62,4 @@ const PreviousButton =  styled(Link)`
       }
 `;
 
-export default PreviousButton;
+export default Button;

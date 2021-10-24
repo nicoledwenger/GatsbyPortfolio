@@ -214,7 +214,7 @@ const IndexPage = ({ data }) => {
               background in <span>strategic communication</span>
             </Heading>
             <SubHeading>
-              Currently seeking a full-time position in San Diego, California
+              Currently working as a Solutions Specialist at Deloitte
             </SubHeading>
             <Arrow />
           </AppearBox>

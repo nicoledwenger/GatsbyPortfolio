@@ -1,131 +1,42 @@
 import React from "react"
-import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
+import { graphql } from "gatsby"
+import Img from "gatsby-image"
 
 import Layout from "../components/layout"
-import Heading from '../components/text/Heading'
-import styled from "styled-components"
-import { breakpoints } from '../components/Breakpoints'
-import Paragraph from '../components/text/Paragraph'
+import Heading from "../components/text/Heading"
+import Paragraph from "../components/text/Paragraph"
+import WorkSubHeading from "../components/text/WorkSubHeading"
 import CallToAction from "../components/text/CallToAction"
-import WorkSubHeading from '../components/text/WorkSubHeading'
 import SEO from "../components/seo"
-import Button from '../components/UI/Button'
-import RoleTable from '../components/UI/RoleTable'
+import ButtonContainer from '../components/UI/ButtonContainer'
+import Button from "../components/UI/Button"
 
-const ProjectContainer = styled.div`
-    width: 100%;
-    margin-top: 80px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-end;
+import HeroContainer from "../components/UI/Project/HeroContainer"
+import HeroSegment from "../components/UI/Project/HeroSegment"
+import RoleTable from "../components/UI/Project/RoleTable"
+import ProjectContainer from "../components/UI/Project/ProjectContainer"
+import Container from "../components/UI/Project/Container"
+import ImageContainer from "../components/UI/Project/ImageContainer"
 
-    @media (max-width: ${breakpoints.mobileMax}) {
-      display: block;
-      flex-wrap: nowrap;
-  }
-`;
 
-const HeroContainer = styled.div`
-    width: 100vw;
-    margin-top: 8%;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-
-    @media (max-width: ${breakpoints.mobileMax}) {
-      display: block;
-      flex-wrap: nowrap;
-      margin-top: 15%;
-  }
-`;
-
-const HeroSegement = styled.div` 
-  margin-bottom: 80px;
-  transition-duration: 0.3s;
-
-  :nth-child(1) {
-    width: 55%;
-    margin-right: 50px;
-
-    @media (max-width: ${breakpoints.mobileMax}) {
-      width: 100%;
-      margin-bottom: 20px;
-    }
-  }
-
-  :nth-child(2) {
-    width: 30%;
-
-    @media (max-width: ${breakpoints.mobileMax}) {
-      width: 100%;
-      margin-left: 20px;
-    }
-  }
-`;
-
-const Container = styled.div` 
-  width: 48%;
-  margin-bottom: 80px;
-  transition-duration: 0.3s;
-
-  :nth-child(odd) {
-    margin-right: 0;
-
-    @media (min-width: ${breakpoints.mobileMax}) {
-        margin-right: 4%;
-    }
-  }
-
-  @media (max-width: ${breakpoints.mobileMax}) {
-    width: 100%;
+const project = {
+  task: {
+    first: 'Web Developer',
+    second: 'Web Designer',
+    third: '',
+  },
+  tool: {
+    first: 'HTML / CSS',
+    second: 'jQuery',
+    third: 'Adobe Illustrator',
+  },
+  projectName: 'Chevrolet Corvette Encyclopedia',
+  projectCategory: 'Web Development',
+  projectYear: '2019',
+  link: 'https://github.com/nicoledwenger/CorvetteEncyclopedia',
+  prevProject: 'Calaveras State Park',
+  nextProject: 'Tesla Pitch Strategy'
 }
-`;
-
-const ImageContainer = styled.div`
-  align-items: center;
-  width: 100vw;
-  text-align: center;
-
-  > .gatsby-image-wrapper {
-    width: 70%;
-    margin: 0 auto;
-
-    @media (max-width: ${breakpoints.mobileMax}) {
-      width: 100%;
-    }
-  }
-
-  ${Paragraph} {
-    width: 60%;
-    margin: 0 auto;
-    padding-bottom: 20px;
-
-    @media (max-width: ${breakpoints.mobileMax}) {
-      width: 85%;
-    }
-  }
-`;
-
-const ButtonContainer = styled.div`
-  width: 48%;
-  margin-bottom: 80px;
-  transition-duration: 0.3s;
-
-  :nth-child(odd) {
-    margin-right: 0;
-    margin-bottom: 20px;
-
-    @media (min-width: ${breakpoints.mobileMax}) {
-        margin-right: 4%;
-        margin-bottom: 80px;
-    }
-  }
-
-  @media (max-width: ${breakpoints.mobileMax}) {
-      width: 100%;
-  }
-`;
 
 const CorvetteEncyclopedia = ({data}) => {
 
@@ -134,38 +45,36 @@ const CorvetteEncyclopedia = ({data}) => {
       <SEO 
         title={`Projects | Chevrolet Corvette Encyclopedia`} />
       <HeroContainer>
-          <HeroSegement>
-          <Img fluid={data.featuredImgFluid.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt="Chevrolet Corvette Encyclopedia mockup" />
-            </HeroSegement>
+        <HeroSegment>
+          <Img
+              fluid={data.featuredImgFluid.childImageSharp.fluid}
+              style={{ boxShadow: "0px 4px 10px 0 #dedede" }}
+              alt={`${project.projectName} mockup`}
+            />
+        </HeroSegment>
 
-            <HeroSegement> 
-              <Heading style={{marginTop: '0'}}>Chevrolet Corvette Encyclopedia</Heading>
-              <Paragraph>Web Development - 2019</Paragraph>
-              <RoleTable>
-                <Paragraph>
-                  <strong>Role</strong>
-                  <br/>
-                  Web Developer
-                  <br/>
-                  Web Desginer
-                </Paragraph>
-                <Paragraph>
-                  <strong>Stack</strong>
-                  <br/>
-                  HTML / CSS
-                  <br/>
-                  jQuery
-                  <br/>
-                  Adobe Illustrator
-                </Paragraph>
-              </RoleTable>
-              <CallToAction><a href="https://github.com/nicoledwenger/CorvetteEncyclopedia" style={{color: '#212529'}}>repository</a></CallToAction>
-            </HeroSegement>
-        </HeroContainer>
+        <HeroSegment>
+          <Heading style={{ marginTop: "0" }}>
+            {project.projectName}
+          </Heading>
+
+          <Paragraph>
+            {project.projectCategory} - {project.projectYear}
+          </Paragraph>
+
+          <RoleTable 
+            task={project.task}
+            tool={project.tool}
+          />
+          <CallToAction href={project.link}>
+              view respository
+          </CallToAction>
+        </HeroSegment>
+      </HeroContainer>
 
       <ImageContainer>
       <Paragraph>This wireframe helped me visualize how aspects of my site needed to change amongst desktop and mobile versions. With consideration on how a user will interact with the information, I wanted the user interface design to remain simplistic and focus on the model information.</Paragraph>
-      <Img fluid={data.wireframe.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt="Corvette Encyclopedia wireframe" />
+      <Img fluid={data.wireframe.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt={`${project.projectName} wireframe`}/>
       </ImageContainer>
        
       <Layout>
@@ -188,7 +97,7 @@ const CorvetteEncyclopedia = ({data}) => {
       </Layout>
 
       <ImageContainer>
-      <Img fluid={data.homePage.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt="Corvette Encyclopedia homepage" />
+      <Img fluid={data.homePage.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt={`${project.projectName} homepage`} />
       </ImageContainer>
 
         <Layout>
@@ -211,7 +120,7 @@ const CorvetteEncyclopedia = ({data}) => {
 
     
       <ImageContainer>
-      <Img fluid={data.otherPage.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt="Corvette Encyclopedia other pages" />
+      <Img fluid={data.otherPage.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt={`${project.projectName} other pages`} />
       </ImageContainer>
 
       <Layout>
@@ -220,13 +129,13 @@ const CorvetteEncyclopedia = ({data}) => {
         <ProjectContainer>
           <ButtonContainer>
             <Button to="/CalaverasStatePark">
-            <Img fluid={data.prevProject.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt="Calaveras State Park mobile pages" />
+            <Img fluid={data.prevProject.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt={`${project.prevProject} mockup`} />
             </Button>
             </ButtonContainer>
 
             <ButtonContainer>
             <Button to="/TeslaPitch">
-            <Img fluid={data.nextProject.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt="Tesla pitch pages" />
+            <Img fluid={data.nextProject.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt={`${project.nextProject} mockup`} />
             </Button>
             </ButtonContainer>
         </ProjectContainer>

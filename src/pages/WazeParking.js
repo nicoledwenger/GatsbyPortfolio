@@ -4,174 +4,71 @@ import Img from "gatsby-image"
 
 import Layout from "../components/layout"
 import Heading from "../components/text/Heading"
-import styled from "styled-components"
-import { breakpoints } from "../components/Breakpoints"
 import Paragraph from "../components/text/Paragraph"
 import WorkSubHeading from "../components/text/WorkSubHeading"
 import CallToAction from "../components/text/CallToAction"
 import SEO from "../components/seo"
+import ButtonContainer from '../components/UI/ButtonContainer'
 import Button from "../components/UI/Button"
-import RoleTable from "../components/UI/RoleTable"
 
-const ProjectContainer = styled.div`
-  width: 100%;
-  margin-top: 80px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
+import HeroContainer from "../components/UI/Project/HeroContainer"
+import HeroSegment from "../components/UI/Project/HeroSegment"
+import RoleTable from "../components/UI/Project/RoleTable"
+import ProjectContainer from "../components/UI/Project/ProjectContainer"
+import Container from "../components/UI/Project/Container"
+import ImageContainer from "../components/UI/Project/ImageContainer"
 
-  @media (max-width: ${breakpoints.mobileMax}) {
-    display: block;
-    flex-wrap: nowrap;
-  }
-`
 
-const HeroContainer = styled.div`
-  width: 100vw;
-  margin-top: 8%;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-
-  @media (max-width: ${breakpoints.mobileMax}) {
-    display: block;
-    flex-wrap: nowrap;
-    margin-top: 15%;
-  }
-`
-
-const HeroSegement = styled.div`
-  margin-bottom: 80px;
-  transition-duration: 0.3s;
-
-  :nth-child(1) {
-    width: 55%;
-    margin-right: 50px;
-
-    @media (max-width: ${breakpoints.mobileMax}) {
-      width: 100%;
-      margin-bottom: 20px;
-    }
-  }
-
-  :nth-child(2) {
-    width: 30%;
-
-    @media (max-width: ${breakpoints.mobileMax}) {
-      width: 100%;
-      margin-left: 20px;
-    }
-  }
-`
-
-const Container = styled.div`
-  width: 48%;
-  margin-bottom: 80px;
-  transition-duration: 0.3s;
-
-  :nth-child(odd) {
-    margin-right: 0;
-
-    @media (min-width: ${breakpoints.mobileMax}) {
-      margin-right: 4%;
-    }
-  }
-
-  @media (max-width: ${breakpoints.mobileMax}) {
-    width: 100%;
-  }
-`
-
-const ImageContainer = styled.div`
-  align-items: center;
-  width: 100vw;
-  text-align: center;
-
-  > .gatsby-image-wrapper {
-    width: 70%;
-    margin: 0 auto;
-
-    @media (max-width: ${breakpoints.mobileMax}) {
-      width: 100%;
-    }
-  }
-
-  ${Paragraph} {
-    width: 60%;
-    margin: 0 auto;
-    padding-bottom: 20px;
-
-    @media (max-width: ${breakpoints.mobileMax}) {
-      width: 85%;
-    }
-  }
-`
-
-const ButtonContainer = styled.div`
-  width: 48%;
-  margin-bottom: 80px;
-  transition-duration: 0.3s;
-
-  :nth-child(odd) {
-    margin-right: 0;
-    margin-bottom: 20px;
-
-    @media (min-width: ${breakpoints.mobileMax}) {
-      margin-right: 4%;
-      margin-bottom: 80px;
-    }
-  }
-
-  @media (max-width: ${breakpoints.mobileMax}) {
-    width: 100%;
-  }
-`
+const project = {
+  task: {
+    first: 'User Scenario Mapping',
+    second: 'User Interview/Testing',
+    third: 'Prototying',
+  },
+  tool: {
+    first: 'Adobe XD',
+    second: 'Miro',
+    third: '',
+  },
+  projectName: 'Parking for Waze',
+  projectCategory: 'UX/UI',
+  projectYear: '2021',
+  link: 'https://xd.adobe.com/view/ffd5838f-bb0b-47c3-81fe-923ad0fc5450-aa86/',
+  prevProject: 'Craigslist Redesign',
+  nextProject: 'HANK Development'
+}
 
 const WazeParking = ({ data }) => {
   return (
     <>
       <SEO title={`Projects | Parking for Waze`} />
-      <HeroContainer>
-        <HeroSegement>
-          <Img
-            fluid={data.featuredImgFluid.childImageSharp.fluid}
-            style={{ boxShadow: "0px 4px 10px 0 #dedede" }}
-            alt="Parking for Waze prototype mockup"
-          />
-        </HeroSegement>
 
-        <HeroSegement>
+      <HeroContainer>
+        <HeroSegment>
+          <Img
+              fluid={data.featuredImgFluid.childImageSharp.fluid}
+              style={{ boxShadow: "0px 4px 10px 0 #dedede" }}
+              alt={`${project.projectName} mockup`}
+            />
+        </HeroSegment>
+
+        <HeroSegment>
           <Heading style={{ marginTop: "0" }}>
-            Parking for Waze
+            {project.projectName}
           </Heading>
-          <Paragraph>UX/UI Design - 2021</Paragraph>
-          <RoleTable>
-            <Paragraph>
-              <strong>Responsibilities</strong>
-              <br />
-              User Scenario Mapping
-              <br />
-              User Interviewing/Testing
-              <br />
-              Prototyping
-            </Paragraph>
-            <Paragraph>
-              <strong>Stack</strong>
-              <br />
-              Adobe XD
-              <br />
-              Miro
-            </Paragraph>
-          </RoleTable>
-          <CallToAction>
-            <a
-              href="https://xd.adobe.com/view/ffd5838f-bb0b-47c3-81fe-923ad0fc5450-aa86/"
-              style={{ color: "#212529" }}
-            >
+
+          <Paragraph>
+            {project.projectCategory} - {project.projectYear}
+          </Paragraph>
+
+          <RoleTable 
+            task={project.task}
+            tool={project.tool}
+          />
+          <CallToAction href={project.link}>
               view prototype
-            </a>
           </CallToAction>
-        </HeroSegement>
+        </HeroSegment>
       </HeroContainer>
 
       <Layout>
@@ -274,7 +171,7 @@ const WazeParking = ({ data }) => {
         <Img
           fluid={data.wireframe.childImageSharp.fluid}
           style={{ boxShadow: "0px 4px 10px 0 #dedede" }}
-          alt="Waze for Parking wireframe"
+          alt={`${project.projectName} wireframe`}
         />
       </ImageContainer>
 
@@ -321,7 +218,7 @@ const WazeParking = ({ data }) => {
         <Img
           fluid={data.homePage.childImageSharp.fluid}
           style={{ boxShadow: "0px 4px 10px 0 #dedede" }}
-          alt="Car Compare homepage mockup"
+          alt={`${project.projectName} mockup`}
         />
       </ImageContainer>
 
@@ -356,7 +253,7 @@ const WazeParking = ({ data }) => {
         <Img
           fluid={data.otherPage.childImageSharp.fluid}
           style={{ boxShadow: "0px 4px 10px 0 #dedede" }}
-          alt="Car Compare mockups"
+          alt={`${project.projectName} mockup`}
         />
       </ImageContainer>
 
@@ -395,24 +292,25 @@ const WazeParking = ({ data }) => {
 
         <ProjectContainer>
           <ButtonContainer>
-            <Button to="/CraigslistRedesign">
+          <Button to="/CraigslistRedesign">
               <Img
                 fluid={data.prevProject.childImageSharp.fluid}
                 style={{ boxShadow: "0px 4px 10px 0 #dedede" }}
-                alt="YWCA pages"
+                alt={`${project.prevProject} mockup`}
               />
             </Button>
           </ButtonContainer>
-
+            
           <ButtonContainer>
-            <Button to="/HankDevelopment">
+          <Button to="/HankDevelopment">
               <Img
                 fluid={data.nextProject.childImageSharp.fluid}
                 style={{ boxShadow: "0px 4px 10px 0 #dedede" }}
-                alt="Car comparison mockup"
+                alt={`${project.nextProject} mockup`}
               />
             </Button>
           </ButtonContainer>
+            
         </ProjectContainer>
       </Layout>
     </>
