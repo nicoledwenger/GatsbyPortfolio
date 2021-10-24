@@ -1,131 +1,42 @@
 import React from "react"
-import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
+import { graphql } from "gatsby"
+import Img from "gatsby-image"
 
 import Layout from "../components/layout"
-import Heading from '../components/text/Heading'
-import styled from "styled-components"
-import { breakpoints } from '../components/Breakpoints'
-import Paragraph from '../components/text/Paragraph'
+import Heading from "../components/text/Heading"
+import Paragraph from "../components/text/Paragraph"
+import WorkSubHeading from "../components/text/WorkSubHeading"
 import CallToAction from "../components/text/CallToAction"
-import WorkSubHeading from '../components/text/WorkSubHeading'
 import SEO from "../components/seo"
-import Button from '../components/UI/Button'
-import RoleTable from '../components/UI/RoleTable'
+import ButtonContainer from '../components/UI/ButtonContainer'
+import Button from "../components/UI/Button"
 
-const ProjectContainer = styled.div`
-    width: 100%;
-    margin-top: 80px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-end;
+import HeroContainer from "../components/UI/Project/HeroContainer"
+import HeroSegment from "../components/UI/Project/HeroSegment"
+import RoleTable from "../components/UI/Project/RoleTable"
+import ProjectContainer from "../components/UI/Project/ProjectContainer"
+import Container from "../components/UI/Project/Container"
+import ImageContainer from "../components/UI/Project/ImageContainer"
 
-    @media (max-width: ${breakpoints.mobileMax}) {
-      display: block;
-      flex-wrap: nowrap;
-  }
-`;
 
-const HeroContainer = styled.div`
-    width: 100vw;
-    margin-top: 8%;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-
-    @media (max-width: ${breakpoints.mobileMax}) {
-      display: block;
-      flex-wrap: nowrap;
-      margin-top: 15%;
-  }
-`;
-
-const HeroSegement = styled.div` 
-  margin-bottom: 80px;
-  transition-duration: 0.3s;
-
-  :nth-child(1) {
-    width: 55%;
-    margin-right: 50px;
-
-    @media (max-width: ${breakpoints.mobileMax}) {
-      width: 100%;
-      margin-bottom: 20px;
-    }
-  }
-
-  :nth-child(2) {
-    width: 30%;
-
-    @media (max-width: ${breakpoints.mobileMax}) {
-      width: 100%;
-      margin-left: 20px;
-    }
-  }
-`;
-
-const Container = styled.div` 
-  width: 48%;
-  margin-bottom: 80px;
-  transition-duration: 0.3s;
-
-  :nth-child(odd) {
-    margin-right: 0;
-
-    @media (min-width: ${breakpoints.mobileMax}) {
-        margin-right: 4%;
-    }
-  }
-
-  @media (max-width: ${breakpoints.mobileMax}) {
-    width: 100%;
+const project = {
+  task: {
+    first: 'Document Designer',
+    second: 'Strategic Analyst',
+    third: 'Researcher',
+  },
+  tool: {
+    first: 'Adobe InDesign',
+    second: '',
+    third: '',
+  },
+  projectName: 'Tesla Pitch Strategy',
+  projectCategory: 'Writing',
+  projectYear: '2020',
+  link: 'https://issuu.com/ndwenge/docs/pitch-strategy-reduced',
+  prevProject: 'Corvette Encyclopedia',
+  nextProject: 'YWCA Branding Guidelines'
 }
-`;
-
-const ImageContainer = styled.div`
-  align-items: center;
-  width: 100vw;
-  text-align: center;
-
-  > .gatsby-image-wrapper {
-    width: 70%;
-    margin: 0 auto;
-
-    @media (max-width: ${breakpoints.mobileMax}) {
-      width: 100%;
-    }
-  }
-
-  ${Paragraph} {
-    width: 60%;
-    margin: 0 auto;
-    padding-bottom: 20px;
-
-    @media (max-width: ${breakpoints.mobileMax}) {
-      width: 85%;
-    }
-  }
-`;
-
-const ButtonContainer = styled.div`
-  width: 48%;
-  margin-bottom: 80px;
-  transition-duration: 0.3s;
-
-  :nth-child(odd) {
-    margin-right: 0;
-    margin-bottom: 20px;
-
-    @media (min-width: ${breakpoints.mobileMax}) {
-        margin-right: 4%;
-        margin-bottom: 80px;
-    }
-  }
-
-  @media (max-width: ${breakpoints.mobileMax}) {
-      width: 100%;
-  }
-`;
 
 const TeslaPitch = ({data}) => {
 
@@ -134,32 +45,32 @@ const TeslaPitch = ({data}) => {
       <SEO 
         title={`Projects | Tesla Pitch Strategy`} />
       <HeroContainer>
-          <HeroSegement>
-          <Img fluid={data.featuredImgFluid.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt="Tesla pitch strategy first pages" />
-            </HeroSegement>
+        <HeroSegment>
+          <Img
+              fluid={data.featuredImgFluid.childImageSharp.fluid}
+              style={{ boxShadow: "0px 4px 10px 0 #dedede" }}
+              alt={`${project.projectName} mockup`}
+            />
+        </HeroSegment>
 
-            <HeroSegement> 
-              <Heading style={{marginTop: '0'}}>Tesla Pitch Strategy</Heading>
-              <Paragraph>Writing - 2020</Paragraph>
-              <RoleTable>
-                <Paragraph>
-                  <strong>Role</strong>
-                  <br/>
-                  Document Designer
-                  <br/>
-                  Strategic Analyst
-                  <br/>
-                  Researcher
-                </Paragraph>
-                <Paragraph>
-                  <strong>Stack</strong>
-                  <br/>
-                  Adobe InDesgin
-                </Paragraph>
-              </RoleTable>
-              <CallToAction><a href="https://issuu.com/ndwenge/docs/pitch-strategy-reduced" style={{color: '#212529'}}>live document</a></CallToAction>
-            </HeroSegement>
-        </HeroContainer>
+        <HeroSegment>
+          <Heading style={{ marginTop: "0" }}>
+            {project.projectName}
+          </Heading>
+
+          <Paragraph>
+            {project.projectCategory} - {project.projectYear}
+          </Paragraph>
+
+          <RoleTable 
+            task={project.task}
+            tool={project.tool}
+          />
+          <CallToAction href={project.link}>
+              live document
+          </CallToAction>
+        </HeroSegment>
+      </HeroContainer>
        
       <Layout>
         <div>
@@ -181,7 +92,7 @@ const TeslaPitch = ({data}) => {
       </Layout>
 
       <ImageContainer>
-      <Img fluid={data.homePage.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt="Tesla pitch strategy cover" />
+      <Img fluid={data.homePage.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt={`${project.projectName} cover`} />
       </ImageContainer>
 
         <Layout>
@@ -204,7 +115,7 @@ const TeslaPitch = ({data}) => {
 
     
       <ImageContainer>
-      <Img fluid={data.otherPage.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt="Tesla pitch strategy more pages" />
+      <Img fluid={data.otherPage.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt={`${project.projectName} pages`} />
       </ImageContainer>
       
       <Layout>
@@ -213,13 +124,13 @@ const TeslaPitch = ({data}) => {
         <ProjectContainer>
           <ButtonContainer>
             <Button to="/CorvetteEncyclopedia">
-            <Img fluid={data.prevProject.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt="Corvette encyclopedia homepage" />
+            <Img fluid={data.prevProject.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt={`${project.prevProject} mockup`} />
             </Button>
             </ButtonContainer>
 
             <ButtonContainer>
             <Button to="/YWCAGallery">
-            <Img fluid={data.nextProject.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt="YWCA branding front page" />
+            <Img fluid={data.nextProject.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt={`${project.nextProject} mockup`} />
             </Button>
             </ButtonContainer>
         </ProjectContainer>

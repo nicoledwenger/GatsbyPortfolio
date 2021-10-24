@@ -1,131 +1,42 @@
 import React from "react"
-import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
+import { graphql } from "gatsby"
+import Img from "gatsby-image"
 
 import Layout from "../components/layout"
-import Heading from '../components/text/Heading'
-import styled from "styled-components"
-import { breakpoints } from '../components/Breakpoints'
-import Paragraph from '../components/text/Paragraph'
+import Heading from "../components/text/Heading"
+import Paragraph from "../components/text/Paragraph"
+import WorkSubHeading from "../components/text/WorkSubHeading"
 import CallToAction from "../components/text/CallToAction"
-import WorkSubHeading from '../components/text/WorkSubHeading'
 import SEO from "../components/seo"
-import Button from '../components/UI/Button'
-import RoleTable from '../components/UI/RoleTable'
+import ButtonContainer from '../components/UI/ButtonContainer'
+import Button from "../components/UI/Button"
 
-const ProjectContainer = styled.div`
-    width: 100%;
-    margin-top: 80px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-end;
+import HeroContainer from "../components/UI/Project/HeroContainer"
+import HeroSegment from "../components/UI/Project/HeroSegment"
+import RoleTable from "../components/UI/Project/RoleTable"
+import ProjectContainer from "../components/UI/Project/ProjectContainer"
+import Container from "../components/UI/Project/Container"
+import ImageContainer from "../components/UI/Project/ImageContainer"
 
-    @media (max-width: ${breakpoints.mobileMax}) {
-      display: block;
-      flex-wrap: nowrap;
-  }
-`;
 
-const HeroContainer = styled.div`
-    width: 100vw;
-    margin-top: 8%;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-
-    @media (max-width: ${breakpoints.mobileMax}) {
-      display: block;
-      flex-wrap: nowrap;
-      margin-top: 15%;
-  }
-`;
-
-const HeroSegement = styled.div` 
-  margin-bottom: 80px;
-  transition-duration: 0.3s;
-
-  :nth-child(1) {
-    width: 55%;
-    margin-right: 50px;
-
-    @media (max-width: ${breakpoints.mobileMax}) {
-      width: 100%;
-      margin-bottom: 20px;
-    }
-  }
-
-  :nth-child(2) {
-    width: 30%;
-
-    @media (max-width: ${breakpoints.mobileMax}) {
-      width: 100%;
-      margin-left: 20px;
-    }
-  }
-`;
-
-const Container = styled.div` 
-  width: 48%;
-  margin-bottom: 80px;
-  transition-duration: 0.3s;
-
-  :nth-child(odd) {
-    margin-right: 0;
-
-    @media (min-width: ${breakpoints.mobileMax}) {
-        margin-right: 4%;
-    }
-  }
-
-  @media (max-width: ${breakpoints.mobileMax}) {
-    width: 100%;
+const project = {
+  task: {
+    first: 'Web Developer',
+    second: 'Art Direction',
+    third: 'UI / UX',
+  },
+  tool: {
+    first: 'Gatsby.JS',
+    second: 'Styled-Components',
+    third: 'Github Pages',
+  },
+  projectName: 'HANK Development',
+  projectCategory: 'Web Development',
+  projectYear: '2020',
+  link: 'https://github.com/nicoledwenger/hankdevelopment.github.io',
+  prevProject: 'Co-curricular Engagement',
+  nextProject: 'Purdue Agriculture Media Outreach'
 }
-`;
-
-const ImageContainer = styled.div`
-  align-items: center;
-  width: 100vw;
-  text-align: center;
-
-  > .gatsby-image-wrapper {
-    width: 70%;
-    margin: 0 auto;
-
-    @media (max-width: ${breakpoints.mobileMax}) {
-      width: 100%;
-    }
-  }
-
-  ${Paragraph} {
-    width: 60%;
-    margin: 0 auto;
-    padding-bottom: 20px;
-
-    @media (max-width: ${breakpoints.mobileMax}) {
-      width: 85%;
-    }
-  }
-`;
-
-const ButtonContainer = styled.div`
-  width: 48%;
-  margin-bottom: 80px;
-  transition-duration: 0.3s;
-
-  :nth-child(odd) {
-    margin-right: 0;
-    margin-bottom: 20px;
-
-    @media (min-width: ${breakpoints.mobileMax}) {
-        margin-right: 4%;
-        margin-bottom: 80px;
-    }
-  }
-
-  @media (max-width: ${breakpoints.mobileMax}) {
-      width: 100%;
-  }
-`;
 
 const HankDev = ({data}) => {
 
@@ -134,40 +45,36 @@ const HankDev = ({data}) => {
       <SEO 
         title={`Projects | HANK Development`} />
       <HeroContainer>
-          <HeroSegement>
-          <Img fluid={data.featuredImgFluid.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt="HANK Development mockup" />
-            </HeroSegement>
+        <HeroSegment>
+          <Img
+              fluid={data.featuredImgFluid.childImageSharp.fluid}
+              style={{ boxShadow: "0px 4px 10px 0 #dedede" }}
+              alt={`${project.projectName} mockup`}
+            />
+        </HeroSegment>
 
-            <HeroSegement> 
-              <Heading style={{marginTop: '0'}}>HANK Development</Heading>
-              <Paragraph>Web Development - 2020</Paragraph>
-              <RoleTable>
-                <Paragraph>
-                  <strong>Role</strong>
-                  <br/>
-                  Web Developer
-                  <br/>
-                  Art Direction
-                  <br/>
-                  UI / UX
-                </Paragraph>
-                <Paragraph>
-                  <strong>Stack</strong>
-                  <br/>
-                  Gatsby.JS
-                  <br/>
-                  Styled-Components
-                  <br/>
-                  Github Pages
-                </Paragraph>
-              </RoleTable>
-              <CallToAction><a href="https://hankdevelopment.com/" style={{color: '#212529'}}>live site</a></CallToAction>
-            </HeroSegement>
-        </HeroContainer>
+        <HeroSegment>
+          <Heading style={{ marginTop: "0" }}>
+            {project.projectName}
+          </Heading>
+
+          <Paragraph>
+            {project.projectCategory} - {project.projectYear}
+          </Paragraph>
+
+          <RoleTable 
+            task={project.task}
+            tool={project.tool}
+          />
+          <CallToAction href={project.link}>
+              view repository
+          </CallToAction>
+        </HeroSegment>
+      </HeroContainer>
 
       <ImageContainer>
       <Paragraph>Every development project begins with a wireframe sketch. This project I was in charge of designing and developing the site utilizing branding standards a teammate defined.</Paragraph>
-      <Img fluid={data.wireframe.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt="HANK Development wireframe" />
+      <Img fluid={data.wireframe.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt={`${project.projectName} wireframe`} />
       </ImageContainer>
        
       <Layout>
@@ -190,7 +97,7 @@ const HankDev = ({data}) => {
       </Layout>
 
       <ImageContainer>
-      <Img fluid={data.homePage.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt="HANK Development homepage" />
+      <Img fluid={data.homePage.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt={`${project.projectName} mockup`} />
       </ImageContainer>
 
         <Layout>
@@ -213,7 +120,7 @@ const HankDev = ({data}) => {
 
     
       <ImageContainer>
-      <Img fluid={data.otherPage.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt="HANK Development pages" />
+      <Img fluid={data.otherPage.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt={`${project.projectName} mockup`} />
       </ImageContainer>
 
       <Layout>
@@ -222,13 +129,13 @@ const HankDev = ({data}) => {
         <ProjectContainer>
           <ButtonContainer>
             <Button to="/CoCurricular">
-            <Img fluid={data.prevProject.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt="PRSSA homepage" />
+            <Img fluid={data.prevProject.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt={`${project.prevProject} mockup`} />
             </Button>
             </ButtonContainer>
 
             <ButtonContainer>
             <Button to="/PurdueAgriculture">
-            <Img fluid={data.nextProject.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt="Purdue Agriculture Media Outreach homepage" />
+            <Img fluid={data.nextProject.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt={`${project.nextProject} mockup`} />
             </Button>
             </ButtonContainer>
         </ProjectContainer>

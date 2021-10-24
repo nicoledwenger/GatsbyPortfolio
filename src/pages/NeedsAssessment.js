@@ -1,106 +1,40 @@
 import React from "react"
-import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
+import { graphql } from "gatsby"
+import Img from "gatsby-image"
 
 import Layout from "../components/layout"
-import Heading from '../components/text/Heading'
-import styled from "styled-components"
-import { breakpoints } from '../components/Breakpoints'
-import Paragraph from '../components/text/Paragraph'
+import Heading from "../components/text/Heading"
+import Paragraph from "../components/text/Paragraph"
+import WorkSubHeading from "../components/text/WorkSubHeading"
 import CallToAction from "../components/text/CallToAction"
-import WorkSubHeading from '../components/text/WorkSubHeading'
 import SEO from "../components/seo"
-import Button from '../components/UI/Button'
-import RoleTable from '../components/UI/RoleTable'
+import ButtonContainer from '../components/UI/ButtonContainer'
+import Button from "../components/UI/Button"
 
-const ProjectContainer = styled.div`
-    width: 100%;
-    margin-top: 80px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-end;
+import HeroContainer from "../components/UI/Project/HeroContainer"
+import HeroSegment from "../components/UI/Project/HeroSegment"
+import RoleTable from "../components/UI/Project/RoleTable"
+import ProjectContainer from "../components/UI/Project/ProjectContainer"
+import Container from "../components/UI/Project/Container"
 
-    @media (max-width: ${breakpoints.mobileMax}) {
-      display: block;
-      flex-wrap: nowrap;
-  }
-`;
-
-const HeroContainer = styled.div`
-    width: 100vw;
-    margin-top: 8%;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-
-    @media (max-width: ${breakpoints.mobileMax}) {
-      display: block;
-      flex-wrap: nowrap;
-      margin-top: 15%;
-  }
-`;
-
-const HeroSegement = styled.div` 
-  margin-bottom: 80px;
-  transition-duration: 0.3s;
-
-  :nth-child(1) {
-    width: 55%;
-    margin-right: 50px;
-
-    @media (max-width: ${breakpoints.mobileMax}) {
-      width: 100%;
-      margin-bottom: 20px;
-    }
-  }
-
-  :nth-child(2) {
-    width: 30%;
-
-    @media (max-width: ${breakpoints.mobileMax}) {
-      width: 100%;
-      margin-left: 20px;
-    }
-  }
-`;
-
-const Container = styled.div` 
-  width: 48%;
-  margin-bottom: 80px;
-  transition-duration: 0.3s;
-
-  :nth-child(odd) {
-    margin-right: 0;
-
-    @media (min-width: ${breakpoints.mobileMax}) {
-        margin-right: 4%;
-    }
-  }
-
-  @media (max-width: ${breakpoints.mobileMax}) {
-    width: 100%;
+const project = {
+  task: {
+    first: 'Researcher',
+    second: 'Co-author',
+    third: 'Stakeholder Interviewer',
+  },
+  tool: {
+    first: 'Google Docs',
+    second: '',
+    third: '',
+  },
+  projectName: 'Lamb School Outreach and Engagement Hub Needs Assessment',
+  projectCategory: 'Writing',
+  projectYear: '2021',
+  link: '',
+  prevProject: 'Tweed Magazine',
+  nextProject: 'Audience Guide'
 }
-`;
-
-const ButtonContainer = styled.div`
-  width: 48%;
-  margin-bottom: 80px;
-  transition-duration: 0.3s;
-
-  :nth-child(odd) {
-    margin-right: 0;
-    margin-bottom: 20px;
-
-    @media (min-width: ${breakpoints.mobileMax}) {
-        margin-right: 4%;
-        margin-bottom: 80px;
-    }
-  }
-
-  @media (max-width: ${breakpoints.mobileMax}) {
-      width: 100%;
-  }
-`;
 
 const NeedsAssessment = ({data}) => {
 
@@ -108,33 +42,32 @@ const NeedsAssessment = ({data}) => {
     <>
       <SEO 
         title={`Projects | Lamb School Needs Assessment`} />
-      <HeroContainer>
-          <HeroSegement>
-          <Img fluid={data.featuredImgFluid.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt="Needs Assessment mockup" />
-            </HeroSegement>
 
-            <HeroSegement> 
-              <Heading style={{marginTop: '0'}}>Lamb School Outreach and Engagement Hub Needs Assessment</Heading>
-              <Paragraph>Writing - 2021</Paragraph>
-              <RoleTable>
-                <Paragraph>
-                  <strong>Role</strong>
-                  <br/>
-                  Researcher
-                  <br/>
-                  Co-writer
-                  <br/>
-                  Stakeholder Interviewer
-                </Paragraph>
-                <Paragraph>
-                  <strong>Stack</strong>
-                  <br/>
-                  Google Docs
-                </Paragraph>
-              </RoleTable>
-              <CallToAction><a href={'Lamb_School_Outreach_Engagement_Needs_Assessment.pdf'} style={{color: '#212529'}}>view the document</a></CallToAction>
-            </HeroSegement>
-        </HeroContainer>
+        <HeroContainer>
+        <HeroSegment>
+          <Img
+              fluid={data.featuredImgFluid.childImageSharp.fluid}
+              style={{ boxShadow: "0px 4px 10px 0 #dedede" }}
+              alt={`${project.projectName} mockup`}
+            />
+        </HeroSegment>
+
+        <HeroSegment>
+          <Heading style={{ marginTop: "0" }}>
+            {project.projectName}
+          </Heading>
+
+          <Paragraph>
+            {project.projectCategory} - {project.projectYear}
+          </Paragraph>
+
+          <RoleTable 
+            task={project.task}
+            tool={project.tool}
+          />
+          <CallToAction href={'Lamb_School_Outreach_Engagement_Needs_Assessment.pdf'}>view the document</CallToAction>
+        </HeroSegment>
+      </HeroContainer>
        
       <Layout>
         <div>
@@ -157,13 +90,13 @@ const NeedsAssessment = ({data}) => {
         <ProjectContainer>
           <ButtonContainer>
             <Button to="/TweedMagazine">
-            <Img fluid={data.prevProject.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt="Purdue Agriculture Media Outreach homepage" />
+            <Img fluid={data.prevProject.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt={`${project.prevProject} mockup`} />
             </Button>
             </ButtonContainer>
 
             <ButtonContainer>
             <Button to="/AudienceGuide">
-            <Img fluid={data.nextProject.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt="Calaveras state park mobile" />
+            <Img fluid={data.nextProject.childImageSharp.fluid} style={{boxShadow: '0px 4px 10px 0 #dedede'}} alt={`${project.nextProject} mockup`} />
             </Button>
             </ButtonContainer>
         </ProjectContainer>
